@@ -1,0 +1,47 @@
+﻿<Window x:Class="Trinity.Views.AddEditClient"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:trinity="clr-namespace:Trinity"
+        xmlns:helpers="clr-namespace:Trinity.Helpers"
+        xmlns:viewModels="clr-namespace:Trinity.ViewModels"
+        xmlns:views="clr-namespace:Trinity.Views"
+        Title="Client Management" Height="400" Width="600"
+        helpers:ViewModelLocator.AutoWireViewModel="True" WindowStartupLocation="CenterScreen" Topmost="True" ResizeMode="NoResize">
+    <Window.Resources>
+        <DataTemplate DataType="{x:Type viewModels:ClientInformationViewModel}">
+            <views:ClientInformation/>
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type viewModels:ContactInformationViewModel}">
+            <views:ContactInformation/>
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type viewModels:AddressInformationViewModel}">
+            <views:AddressInformation/>
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type viewModels:NoteInformationViewModel}">
+            <views:NoteInformation/>
+        </DataTemplate>
+    </Window.Resources>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+        </Grid.RowDefinitions>
+
+        <Grid x:Name="NavBar">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Button Content="Client" Command="{Binding NavCommand}" CommandParameter="client" Grid.Column="0"></Button>
+            <Button Content="Contacts" Command="{Binding NavCommand}" CommandParameter="contact" Grid.Column="1"></Button>
+            <Button Content="Addresses" Command="{Binding NavCommand}" CommandParameter="address" Grid.Column="2"></Button>
+            <Button Content="Notes" Command="{Binding NavCommand}" CommandParameter="note" Grid.Column="3"></Button>
+        </Grid>
+
+        <Grid x:Name="MainContent" Grid.Row="1">
+            <ContentControl Content="{Binding CurrentViewModel}"/>
+        </Grid>
+    </Grid>
+</Window>

@@ -1,0 +1,34 @@
+D:\Data\Trinity\Trinity.Tests\bin\Debug\Trinity.Tests.dll
+D:\Data\Trinity\Trinity.Tests\bin\Debug\Trinity.Tests.pdb
+D:\Data\Trinity\Trinity.Tests\bin\Debug\Moq.dll
+D:\Data\Trinity\Trinity.Tests\bin\Debug\Moq.xml
+D:\Data\Trinity\Trinity.Tests\obj\Debug\Trinity.Tests.csprojResolveAssemblyReference.cache
+D:\Data\Trinity\Trinity.Tests\obj\Debug\Trinity.Tests.dll
+D:\Data\Trinity\Trinity.Tests\obj\Debug\Trinity.Tests.pdb
+D:\Data\Trinity\Trinity.Tests\bin\Debug\Trinity.DataAccess.dll
+D:\Data\Trinity\Trinity.Tests\bin\Debug\Trinity.Model.dll
+D:\Data\Trinity\Trinity.Tests\bin\Debug\Trinity.Services.dll
+D:\Data\Trinity\Trinity.Tests\bin\Debug\EntityFramework.dll
+D:\Data\Trinity\Trinity.Tests\bin\Debug\Trinity.DataAccess.pdb
+D:\Data\Trinity\Trinity.Tests\bin\Debug\Trinity.Model.pdb
+D:\Data\Trinity\Trinity.Tests\bin\Debug\Trinity.Services.pdb
+D:\Data\Trinity\Trinity.Tests\bin\Debug\EntityFramework.xml
+C:\Users\Andrew\Desktop\Trinity\Trinity.Tests\bin\Debug\Trinity.Tests.dll
+C:\Users\Andrew\Desktop\Trinity\Trinity.Tests\bin\Debug\Trinity.Tests.pdb
+C:\Users\Andrew\Desktop\Trinity\Trinity.Tests\bin\Debug\Moq.dll
+C:\Users\Andrew\Desktop\Trinity\Trinity.Tests\bin\Debug\Trinity.DataAccess.dll
+C:\Users\Andrew\Desktop\Trinity\Trinity.Tests\bin\Debug\Trinity.Model.dll
+C:\Users\Andrew\Desktop\Trinity\Trinity.Tests\bin\Debug\Trinity.Services.dll
+C:\Users\Andrew\Desktop\Trinity\Trinity.Tests\bin\Debug\EntityFramework.dll
+C:\Users\Andrew\Desktop\Trinity\Trinity.Tests\bin\Debug\Trinity.DataAccess.pdb
+C:\Users\Andrew\Desktop\Trinity\Trinity.Tests\bin\Debug\Trinity.Model.pdb
+C:\Users\Andrew\Desktop\Trinity\Trinity.Tests\bin\Debug\Trinity.Services.pdb
+C:\Users\Andrew\Desktop\Trinity\Trinity.Tests\bin\Debug\Moq.xml
+C:\Users\Andrew\Desktop\Trinity\Trinity.Tests\bin\Debug\EntityFramework.xml
+C:\Users\Andrew\Desktop\Trinity\Trinity.Tests\obj\Debug\Trinity.Tests.csprojResolveAssemblyReference.cache
+C:\Users\Andrew\Desktop\Trinity\Trinity.Tests\obj\Debug\Trinity.Tests.dll
+C:\Users\Andrew\Desktop\Trinity\Trinity.Tests\obj\Debug\Trinity.Tests.pdb
+C:\Users\Andrew\Documents\Andrews Documents\University\Computer Science\Year 4\Individual Project (CM0645)\Project\Trinity\Trinity.Tests\obj\Debug\Trinity.Tests.csprojResolveAssemblyReference.cache
+C:\Users\Andrew\Documents\Andrews Documents\University\Computer Science\Year 4\Individual Project (CM0645)\Project\Trinity\Trinity.Tests\obj\Debug\Trinity.Tests.csproj.CoreCompileInputs.cache
+C:\Users\Andrew\Documents\Andrews Documents\University\Computer Science\Year 4\Individual Project (CM0645)\Project\Trinity\Trinity.Tests\obj\Debug\Trinity.Tests.dll
+C:\Users\Andrew\Documents\Andrews Documents\University\Computer Science\Year 4\Individual Project (CM0645)\Project\Trinity\Trinity.Tests\obj\Debug\Trinity.Tests.pdb

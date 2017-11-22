@@ -1,0 +1,32 @@
+D:\Data\Trinity\Trinity.Model\bin\Release\Trinity.Model.dll.config
+D:\Data\Trinity\Trinity.Model\bin\Release\Trinity.Model.dll
+D:\Data\Trinity\Trinity.Model\bin\Release\Trinity.Model.pdb
+D:\Data\Trinity\Trinity.Model\bin\Release\EntityFramework.dll
+D:\Data\Trinity\Trinity.Model\bin\Release\EntityFramework.SqlServer.dll
+D:\Data\Trinity\Trinity.Model\bin\Release\Trinity.exe
+D:\Data\Trinity\Trinity.Model\bin\Release\Trinity.Services.dll
+D:\Data\Trinity\Trinity.Model\bin\Release\Microsoft.Practices.Unity.dll
+D:\Data\Trinity\Trinity.Model\bin\Release\Trinity.DataAccess.dll
+D:\Data\Trinity\Trinity.Model\bin\Release\Microsoft.Practices.ServiceLocation.dll
+D:\Data\Trinity\Trinity.Model\bin\Release\EntityFramework.xml
+D:\Data\Trinity\Trinity.Model\bin\Release\EntityFramework.SqlServer.xml
+D:\Data\Trinity\Trinity.Model\bin\Release\Trinity.pdb
+D:\Data\Trinity\Trinity.Model\bin\Release\Trinity.Services.pdb
+D:\Data\Trinity\Trinity.Model\bin\Release\Microsoft.Practices.Unity.xml
+D:\Data\Trinity\Trinity.Model\bin\Release\Trinity.DataAccess.pdb
+D:\Data\Trinity\Trinity.Model\bin\Release\Microsoft.Practices.ServiceLocation.pdb
+D:\Data\Trinity\Trinity.Model\bin\Release\Microsoft.Practices.ServiceLocation.xml
+D:\Data\Trinity\Trinity.Model\obj\Release\Trinity.Model.csprojResolveAssemblyReference.cache
+D:\Data\Trinity\Trinity.Model\obj\Release\Trinity.Model.dll
+D:\Data\Trinity\Trinity.Model\obj\Release\Trinity.Model.pdb
+C:\Users\Andrew\Documents\Andrews Documents\University\Computer Science\Year 4\Individual Project (CM0645)\Project\Trinity\Trinity.Model\bin\Release\Trinity.Model.dll.config
+C:\Users\Andrew\Documents\Andrews Documents\University\Computer Science\Year 4\Individual Project (CM0645)\Project\Trinity\Trinity.Model\bin\Release\Trinity.Model.dll
+C:\Users\Andrew\Documents\Andrews Documents\University\Computer Science\Year 4\Individual Project (CM0645)\Project\Trinity\Trinity.Model\bin\Release\Trinity.Model.pdb
+C:\Users\Andrew\Documents\Andrews Documents\University\Computer Science\Year 4\Individual Project (CM0645)\Project\Trinity\Trinity.Model\bin\Release\EntityFramework.dll
+C:\Users\Andrew\Documents\Andrews Documents\University\Computer Science\Year 4\Individual Project (CM0645)\Project\Trinity\Trinity.Model\bin\Release\EntityFramework.SqlServer.dll
+C:\Users\Andrew\Documents\Andrews Documents\University\Computer Science\Year 4\Individual Project (CM0645)\Project\Trinity\Trinity.Model\bin\Release\EntityFramework.xml
+C:\Users\Andrew\Documents\Andrews Documents\University\Computer Science\Year 4\Individual Project (CM0645)\Project\Trinity\Trinity.Model\bin\Release\EntityFramework.SqlServer.xml
+C:\Users\Andrew\Documents\Andrews Documents\University\Computer Science\Year 4\Individual Project (CM0645)\Project\Trinity\Trinity.Model\obj\Release\Trinity.Model.csprojResolveAssemblyReference.cache
+C:\Users\Andrew\Documents\Andrews Documents\University\Computer Science\Year 4\Individual Project (CM0645)\Project\Trinity\Trinity.Model\obj\Release\Trinity.Model.csproj.CoreCompileInputs.cache
+C:\Users\Andrew\Documents\Andrews Documents\University\Computer Science\Year 4\Individual Project (CM0645)\Project\Trinity\Trinity.Model\obj\Release\Trinity.Model.dll
+C:\Users\Andrew\Documents\Andrews Documents\University\Computer Science\Year 4\Individual Project (CM0645)\Project\Trinity\Trinity.Model\obj\Release\Trinity.Model.pdb

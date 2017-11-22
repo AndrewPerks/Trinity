@@ -1,0 +1,14 @@
+D:\Data\Trinity\Trinity.DataAccess\obj\Release\Trinity.DataAccess.csprojResolveAssemblyReference.cache
+C:\Users\Andrew\Documents\Andrews Documents\University\Computer Science\Year 4\Individual Project (CM0645)\Project\Trinity\Trinity.DataAccess\bin\Release\Trinity.DataAccess.dll
+C:\Users\Andrew\Documents\Andrews Documents\University\Computer Science\Year 4\Individual Project (CM0645)\Project\Trinity\Trinity.DataAccess\bin\Release\Trinity.DataAccess.pdb
+C:\Users\Andrew\Documents\Andrews Documents\University\Computer Science\Year 4\Individual Project (CM0645)\Project\Trinity\Trinity.DataAccess\bin\Release\EntityFramework.dll
+C:\Users\Andrew\Documents\Andrews Documents\University\Computer Science\Year 4\Individual Project (CM0645)\Project\Trinity\Trinity.DataAccess\bin\Release\EntityFramework.SqlServer.dll
+C:\Users\Andrew\Documents\Andrews Documents\University\Computer Science\Year 4\Individual Project (CM0645)\Project\Trinity\Trinity.DataAccess\bin\Release\Trinity.Model.dll
+C:\Users\Andrew\Documents\Andrews Documents\University\Computer Science\Year 4\Individual Project (CM0645)\Project\Trinity\Trinity.DataAccess\bin\Release\EntityFramework.xml
+C:\Users\Andrew\Documents\Andrews Documents\University\Computer Science\Year 4\Individual Project (CM0645)\Project\Trinity\Trinity.DataAccess\bin\Release\EntityFramework.SqlServer.xml
+C:\Users\Andrew\Documents\Andrews Documents\University\Computer Science\Year 4\Individual Project (CM0645)\Project\Trinity\Trinity.DataAccess\bin\Release\Trinity.Model.pdb
+C:\Users\Andrew\Documents\Andrews Documents\University\Computer Science\Year 4\Individual Project (CM0645)\Project\Trinity\Trinity.DataAccess\bin\Release\Trinity.Model.dll.config
+C:\Users\Andrew\Documents\Andrews Documents\University\Computer Science\Year 4\Individual Project (CM0645)\Project\Trinity\Trinity.DataAccess\obj\Release\Trinity.DataAccess.csprojResolveAssemblyReference.cache
+C:\Users\Andrew\Documents\Andrews Documents\University\Computer Science\Year 4\Individual Project (CM0645)\Project\Trinity\Trinity.DataAccess\obj\Release\Trinity.DataAccess.csproj.CoreCompileInputs.cache
+C:\Users\Andrew\Documents\Andrews Documents\University\Computer Science\Year 4\Individual Project (CM0645)\Project\Trinity\Trinity.DataAccess\obj\Release\Trinity.DataAccess.dll
+C:\Users\Andrew\Documents\Andrews Documents\University\Computer Science\Year 4\Individual Project (CM0645)\Project\Trinity\Trinity.DataAccess\obj\Release\Trinity.DataAccess.pdb

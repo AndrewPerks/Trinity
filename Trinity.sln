@@ -1,0 +1,67 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.21005.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Trinity", "Trinity\Trinity.csproj", "{3716EDD5-E42C-485C-8511-863025191A2E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Trinity.Model", "Trinity.Model\Trinity.Model.csproj", "{11160D95-2557-467D-A9CB-D3F72F021A84}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Trinity.DataAccess", "Trinity.DataAccess\Trinity.DataAccess.csproj", "{F0C22E92-2BF2-4D30-835D-7233BB2FF52C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Trinity.Services", "Trinity.Services\Trinity.Services.csproj", "{36B00820-4D56-41F1-BF14-4D9617B39D42}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Trinity.Tests", "Trinity.Tests\Trinity.Tests.csproj", "{A20F3CFC-C8E0-4C95-BF23-C9A066D32364}"
+EndProject
+Global
+	GlobalSection(TeamFoundationVersionControl) = preSolution
+		SccNumberOfProjects = 6
+		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
+		SccTeamFoundationServer = http://sissvr2:8080/tfs/defaultcollection
+		SccLocalPath0 = .
+		SccProjectUniqueName1 = Trinity.DataAccess\\Trinity.DataAccess.csproj
+		SccProjectName1 = Trinity.DataAccess
+		SccLocalPath1 = Trinity.DataAccess
+		SccProjectUniqueName2 = Trinity.Model\\Trinity.Model.csproj
+		SccProjectName2 = Trinity.Model
+		SccLocalPath2 = Trinity.Model
+		SccProjectUniqueName3 = Trinity.Services\\Trinity.Services.csproj
+		SccProjectName3 = Trinity.Services
+		SccLocalPath3 = Trinity.Services
+		SccProjectUniqueName4 = Trinity\\Trinity.csproj
+		SccProjectName4 = Trinity
+		SccLocalPath4 = Trinity
+		SccProjectUniqueName5 = Trinity.Tests\\Trinity.Tests.csproj
+		SccProjectName5 = Trinity.Tests
+		SccLocalPath5 = Trinity.Tests
+	EndGlobalSection
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{3716EDD5-E42C-485C-8511-863025191A2E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3716EDD5-E42C-485C-8511-863025191A2E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3716EDD5-E42C-485C-8511-863025191A2E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3716EDD5-E42C-485C-8511-863025191A2E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{11160D95-2557-467D-A9CB-D3F72F021A84}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{11160D95-2557-467D-A9CB-D3F72F021A84}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{11160D95-2557-467D-A9CB-D3F72F021A84}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{11160D95-2557-467D-A9CB-D3F72F021A84}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F0C22E92-2BF2-4D30-835D-7233BB2FF52C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F0C22E92-2BF2-4D30-835D-7233BB2FF52C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F0C22E92-2BF2-4D30-835D-7233BB2FF52C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F0C22E92-2BF2-4D30-835D-7233BB2FF52C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{36B00820-4D56-41F1-BF14-4D9617B39D42}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{36B00820-4D56-41F1-BF14-4D9617B39D42}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{36B00820-4D56-41F1-BF14-4D9617B39D42}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{36B00820-4D56-41F1-BF14-4D9617B39D42}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A20F3CFC-C8E0-4C95-BF23-C9A066D32364}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A20F3CFC-C8E0-4C95-BF23-C9A066D32364}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A20F3CFC-C8E0-4C95-BF23-C9A066D32364}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A20F3CFC-C8E0-4C95-BF23-C9A066D32364}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

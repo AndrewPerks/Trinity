@@ -1,0 +1,37 @@
+﻿using System;
+using System.ComponentModel;
+using System.Windows;
+
+namespace Trinity.Helpers
+{
+    /// <summary>
+    /// Resolves the correct view model based on the view
+    /// </summary> 
+    public static class ViewModelLocator
+    {
+        public static bool GetAutoWireViewModel(DependencyObject obj)
+        {
+            return (bool) obj.GetValue(AutoWireViewModelProperty);
+        }
+
+        public static void SetAutoWireViewModel(DependencyObject obj, bool value)
+        {
+            obj.SetValue(AutoWireViewModelProperty, value);
+        }
+
+        public static readonly DependencyProperty AutoWireViewModelProperty =
+            DependencyProperty.RegisterAttached("AutoWireViewModel", typeof (bool), typeof (ViewModelLocator),
+                new PropertyMetadata(false, AutoWireViewModelChanged));
+
+        private static void AutoWireViewModelChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
+        {
+            if (DesignerProperties.GetIsInDesignMode(d)) return;
+            var viewType = d.GetType();
+            var viewTypeName = viewType.Name;
+            var viewModelTypeName = "Trinity.ViewModels." + viewTypeName + "ViewModel"; // Change namespace if folder structure changes
+            var viewModelType = Type.GetType(viewModelTypeName);
+            var viewModel = Activator.CreateInstance(viewModelType);
+            ((FrameworkElement) d).DataContext = viewModel;
+        }
+    }
+}

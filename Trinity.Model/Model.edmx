@@ -1,0 +1,2619 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="TrinityModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Address">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="FirstName" Type="nvarchar" MaxLength="500" />
+          <Property Name="LastName" Type="nvarchar" MaxLength="500" />
+          <Property Name="Email" Type="nvarchar" MaxLength="500" />
+          <Property Name="ClientName" Type="nvarchar" MaxLength="500" />
+          <Property Name="Address1" Type="nvarchar" MaxLength="500" />
+          <Property Name="Address2" Type="nvarchar" MaxLength="500" />
+          <Property Name="City" Type="nvarchar" MaxLength="500" />
+          <Property Name="County" Type="nvarchar" MaxLength="500" />
+          <Property Name="PostalCode" Type="nvarchar" MaxLength="500" />
+          <Property Name="CountryId" Type="int" />
+          <Property Name="PhoneNumber" Type="nvarchar" MaxLength="500" />
+          <Property Name="FaxNumber" Type="nvarchar" MaxLength="500" />
+          <Property Name="CreatedOn" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ApplicationSetting">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ApplicationSettingName" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Value" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Client">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ClientName" Type="nvarchar" MaxLength="500" Nullable="false" />
+          <Property Name="WebSite" Type="nvarchar" MaxLength="500" />
+          <Property Name="Email" Type="nvarchar" MaxLength="500" />
+          <Property Name="IsTaxExempt" Type="bit" Nullable="false" />
+          <Property Name="Active" Type="bit" Nullable="false" />
+          <Property Name="ClientAddress_Id" Type="int" />
+          <Property Name="BillingAddress_Id" Type="int" />
+          <Property Name="ShippingAddress_Id" Type="int" />
+          <Property Name="PhoneNumber" Type="nvarchar" MaxLength="500" />
+          <Property Name="FinanceLink" Type="nvarchar" MaxLength="500" />
+          <Property Name="PaymentTerms" Type="int" />
+          <Property Name="ClientCode" Type="nvarchar" MaxLength="50" />
+          <Property Name="CreatedOn" Type="datetime" Nullable="false" />
+          <Property Name="Deleted" Type="bit" Nullable="false" />
+          <Property Name="DeletedOn" Type="datetime" />
+        </EntityType>
+        <EntityType Name="Client_Address_Mapping">
+          <Key>
+            <PropertyRef Name="Client_Id" />
+            <PropertyRef Name="Address_Id" />
+          </Key>
+          <Property Name="Client_Id" Type="int" Nullable="false" />
+          <Property Name="Address_Id" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Client_ClientCategory_Mapping">
+          <Key>
+            <PropertyRef Name="Client_Id" />
+            <PropertyRef Name="ClientCategory_Id" />
+          </Key>
+          <Property Name="Client_Id" Type="int" Nullable="false" />
+          <Property Name="ClientCategory_Id" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ClientAttribute">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="400" Nullable="false" />
+          <Property Name="IsRequired" Type="bit" Nullable="false" />
+          <Property Name="AttributeControlTypeId" Type="int" Nullable="false" />
+          <Property Name="DisplayOrder" Type="int" Nullable="false" />
+          <Property Name="AdminOnly" Type="bit" Nullable="false" />
+          <Property Name="AttributeOptions" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="ClientAttributeValue">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="400" Nullable="false" />
+          <Property Name="Client_Id" Type="int" Nullable="false" />
+          <Property Name="ClientAttribute_Id" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ClientCategory">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="500" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ClientFee">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="FeeType_Id" Type="int" />
+          <Property Name="Client_Id" Type="int" Nullable="false" />
+          <Property Name="Scheme_Id" Type="int" Nullable="false" />
+          <Property Name="FeeExclVAT" Type="decimal" Precision="18" Scale="4" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ClientNote">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Client_Id" Type="int" Nullable="false" />
+          <Property Name="ClientNoteCategory_Id" Type="int" />
+          <Property Name="NoteTitle" Type="nvarchar" MaxLength="50" />
+          <Property Name="NoteContent" Type="nvarchar(max)" />
+          <Property Name="CreatedOn" Type="datetime" Nullable="false" />
+          <Property Name="CreatedBy" Type="nvarchar" MaxLength="500" />
+          <Property Name="ModifiedOn" Type="datetime" />
+          <Property Name="ModifiedBy" Type="nvarchar" MaxLength="500" />
+          <Property Name="Obsolete" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ClientNoteCategory">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="500" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ClientNoteTag">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ClientNote_Id" Type="int" />
+          <Property Name="Name" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Contact">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Client_Id" Type="int" Nullable="false" />
+          <Property Name="Title_Id" Type="int" />
+          <Property Name="FirstName" Type="nvarchar" MaxLength="500" />
+          <Property Name="MiddleName" Type="nvarchar" MaxLength="500" />
+          <Property Name="LastName" Type="nvarchar" MaxLength="500" Nullable="false" />
+          <Property Name="JobTitle" Type="nvarchar" MaxLength="500" />
+          <Property Name="PhoneNumber" Type="nvarchar" MaxLength="500" />
+          <Property Name="MobileNumber" Type="nvarchar" MaxLength="500" />
+          <Property Name="Email" Type="nvarchar" MaxLength="500" />
+          <Property Name="ContactAddress_Id" Type="int" />
+          <Property Name="HomeAddress_Id" Type="int" />
+          <Property Name="Username" Type="nvarchar" MaxLength="500" />
+          <Property Name="Password" Type="nvarchar(max)" />
+          <Property Name="PasswordHash" Type="varbinary(max)" />
+          <Property Name="PasswordFormat_Id" Type="int" Nullable="false" />
+          <Property Name="PasswordSalt" Type="nvarchar(max)" />
+          <Property Name="AdminComment" Type="nvarchar(max)" />
+          <Property Name="LoginActive" Type="bit" Nullable="false" />
+          <Property Name="FailedLoginCount" Type="int" Nullable="false" />
+          <Property Name="Deleted" Type="bit" Nullable="false" />
+          <Property Name="IsSystemAccount" Type="bit" Nullable="false" />
+          <Property Name="SystemName" Type="nvarchar(max)" />
+          <Property Name="LastIpAddress" Type="nvarchar(max)" />
+          <Property Name="CreatedOn" Type="datetime" Nullable="false" />
+          <Property Name="LastLoginDate" Type="datetime" />
+          <Property Name="Note" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="Contact_ContactCategory_Mapping">
+          <Key>
+            <PropertyRef Name="Contact_Id" />
+            <PropertyRef Name="ContactCategory_Id" />
+          </Key>
+          <Property Name="Contact_Id" Type="int" Nullable="false" />
+          <Property Name="ContactCategory_Id" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Contact_FileType_Mapping">
+          <Key>
+            <PropertyRef Name="Contact_Id" />
+            <PropertyRef Name="FileType_Id" />
+          </Key>
+          <Property Name="Contact_Id" Type="int" Nullable="false" />
+          <Property Name="FileType_Id" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Contact_Permission_Mapping">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="Contact_Id" Type="int" Nullable="false" />
+          <Property Name="Scheme_Id" Type="int" Nullable="false" />
+          <Property Name="Permission_Id" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Contact_Role_Mapping">
+          <Key>
+            <PropertyRef Name="ContactId" />
+            <PropertyRef Name="RoleId" />
+          </Key>
+          <Property Name="ContactId" Type="int" Nullable="false" />
+          <Property Name="RoleId" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ContactCategory">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="500" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Contract">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Client_Id" Type="int" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="500" Nullable="false" />
+          <Property Name="Description" Type="nvarchar" MaxLength="1000" Nullable="false" />
+          <Property Name="ContractType_Id" Type="int" Nullable="false" />
+          <Property Name="BillingAddress_Id" Type="int" Nullable="false" />
+          <Property Name="CreatedOn" Type="datetime" Nullable="false" />
+          <Property Name="CreatedBy" Type="nvarchar" MaxLength="500" />
+          <Property Name="Recurs" Type="bit" />
+          <Property Name="RecurrenceFrequency" Type="int" />
+          <Property Name="StartDate" Type="datetime" />
+          <Property Name="EndDate" Type="datetime" />
+          <Property Name="ActualEndDate" Type="datetime" />
+          <Property Name="ContractValue" Type="decimal" Precision="18" Scale="4" />
+          <Property Name="Closed" Type="bit" />
+          <Property Name="ClosedDate" Type="datetime" />
+          <Property Name="Notes" Type="nvarchar(max)" />
+          <Property Name="DailyRate" Type="decimal" Precision="18" Scale="4" />
+          <Property Name="RenewalID" Type="int" />
+          <Property Name="Autobill" Type="bit" />
+          <Property Name="Origstartdate" Type="datetime" />
+          <Property Name="AutoBillFrequency" Type="int" />
+          <Property Name="NextAutoBill" Type="datetime" />
+          <Property Name="ContractHistory" Type="nvarchar(max)" />
+          <Property Name="DefaultContract" Type="bit" />
+          <Property Name="DirectDebit" Type="bit" />
+        </EntityType>
+        <EntityType Name="Country">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="100" Nullable="false" />
+        </EntityType>
+        <EntityType Name="DdInstruction">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Scheme_Id" Type="int" Nullable="false" />
+          <Property Name="DdReference" Type="nvarchar" MaxLength="18" Nullable="false" />
+          <Property Name="DdiActive" Type="bit" Nullable="false" />
+          <Property Name="AccountName" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="AccountNumber" Type="nvarchar" MaxLength="8" Nullable="false" />
+          <Property Name="SortCode" Type="nvarchar" MaxLength="6" Nullable="false" />
+          <Property Name="ScheduleType_Id" Type="int" Nullable="false" />
+          <Property Name="FirstPaymentAmount" Type="decimal" Precision="18" Scale="4" />
+          <Property Name="FirstPaymentDate" Type="datetime" />
+          <Property Name="ScheduledPaymentAmount" Type="decimal" Precision="18" Scale="4" />
+          <Property Name="ScheduledPaymentDate" Type="datetime" />
+          <Property Name="ScheduledPaymentCount" Type="int" />
+          <Property Name="LastPaymentAmount" Type="decimal" Precision="18" Scale="4" />
+          <Property Name="LastPaymentDate" Type="datetime" />
+          <Property Name="Frequency" Type="nvarchar" MaxLength="1" />
+          <Property Name="FrequencyInterval" Type="int" />
+          <Property Name="DayOfWeek" Type="int" />
+          <Property Name="NewInstructionRequired" Type="bit" Nullable="false" />
+          <Property Name="NewInstructionInPlace" Type="datetime" />
+          <Property Name="CancelDate" Type="datetime" />
+          <Property Name="CancelNote" Type="nvarchar(max)" />
+          <Property Name="CancelCode" Type="nvarchar" MaxLength="4" />
+          <Property Name="CreatedOn" Type="datetime" />
+          <Property Name="CreatedBy" Type="nvarchar" MaxLength="500" />
+          <Property Name="ModifiedOn" Type="datetime" />
+          <Property Name="ModifiedBy" Type="nvarchar" MaxLength="500" />
+          <Property Name="FileAuditID" Type="nvarchar" MaxLength="32" />
+          <Property Name="SignUpType" Type="nvarchar" MaxLength="1" />
+          <Property Name="AmendCode" Type="nvarchar" MaxLength="1" />
+          <Property Name="UnpaidSeqCount" Type="int" Nullable="false" />
+          <Property Name="AmendedOn" Type="datetime" />
+          <Property Name="AmendReportFlag" Type="int" />
+          <Property Name="ProductID" Type="int" Nullable="false" />
+          <Property Name="DdiTagID" Type="int" />
+          <Property Name="DdiTimestamp" Type="timestamp" StoreGeneratedPattern="Computed" />
+          <Property Name="Title" Type="nvarchar" MaxLength="500" />
+          <Property Name="FirstName" Type="nvarchar" MaxLength="500" />
+          <Property Name="MiddleName" Type="nvarchar" MaxLength="500" />
+          <Property Name="LastName" Type="nvarchar" MaxLength="500" />
+          <Property Name="JobTitle" Type="nvarchar" MaxLength="500" />
+          <Property Name="PhoneNumber" Type="nvarchar" MaxLength="500" />
+          <Property Name="MobileNumber" Type="nvarchar" MaxLength="500" />
+          <Property Name="Email" Type="nvarchar" MaxLength="500" />
+          <Property Name="ContactAddress_Id" Type="int" />
+          <Property Name="AlternateAddress_Id" Type="int" />
+        </EntityType>
+        <EntityType Name="DdInstructionAttribute">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="400" Nullable="false" />
+          <Property Name="IsRequired" Type="bit" Nullable="false" />
+          <Property Name="AttributeControlType_Id" Type="int" Nullable="false" />
+          <Property Name="DisplayOrder" Type="int" Nullable="false" />
+          <Property Name="AdminOnly" Type="bit" Nullable="false" />
+          <Property Name="AttributeOptions" Type="nvarchar(max)" />
+          <Property Name="AllSchemes" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="DdInstructionAttributeValue">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="400" Nullable="false" />
+          <Property Name="DdInstruction_Id" Type="int" Nullable="false" />
+          <Property Name="DdInstructionAttribute_Id" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="DdInstructionNote">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="DdInstruction_Id" Type="int" Nullable="false" />
+          <Property Name="DdInstructionNoteCategory_Id" Type="int" />
+          <Property Name="NoteContent" Type="nvarchar(max)" />
+          <Property Name="CreatedOn" Type="datetime" Nullable="false" />
+          <Property Name="CreatedBy" Type="nvarchar" MaxLength="500" />
+        </EntityType>
+        <EntityType Name="DdInstructionNoteCategory">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="500" Nullable="false" />
+        </EntityType>
+        <EntityType Name="DdNewSignUpControls">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ControlId" Type="nvarchar" MaxLength="500" Nullable="false" />
+          <Property Name="ScriptDefault" Type="nvarchar" MaxLength="3000" />
+        </EntityType>
+        <EntityType Name="DdScheme">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="SUN" Type="nvarchar" MaxLength="6" Nullable="false" />
+          <Property Name="Client_Id" Type="int" Nullable="false" />
+          <Property Name="ManagedByClient_Id" Type="int" />
+          <Property Name="BillingAddress_Id" Type="int" />
+          <Property Name="SchemeType_Id" Type="int" Nullable="false" />
+          <Property Name="SchemeCode" Type="nvarchar" MaxLength="100" />
+          <Property Name="RemittersName" Type="nvarchar" MaxLength="18" />
+          <Property Name="AccountName" Type="nvarchar" MaxLength="50" />
+          <Property Name="SortCode" Type="nvarchar" MaxLength="6" />
+          <Property Name="AccountNumber" Type="nvarchar" MaxLength="8" />
+          <Property Name="WebOnly" Type="bit" Nullable="false" />
+          <Property Name="WebScheme_Id" Type="int" />
+          <Property Name="SendBacsNewInstruction" Type="bit" Nullable="false" />
+          <Property Name="NewInstructionNoticeInDays" Type="int" Nullable="false" />
+          <Property Name="SendBacsCancellation" Type="bit" Nullable="false" />
+          <Property Name="BacsCancellationWaitInDays" Type="int" />
+          <Property Name="DdRefMustBeUnique" Type="bit" Nullable="false" />
+          <Property Name="ScheduleLastExtended" Type="datetime" />
+          <Property Name="Represent" Type="bit" Nullable="false" />
+          <Property Name="RepresentOffset" Type="int" />
+          <Property Name="RepresentSchedule" Type="nvarchar" MaxLength="50" />
+          <Property Name="SchemeLocked" Type="bit" Nullable="false" />
+          <Property Name="SchemeLockedOn" Type="datetime" Nullable="false" />
+          <Property Name="CreatedOn" Type="datetime" Nullable="false" />
+          <Property Name="CreatedBy" Type="nvarchar" MaxLength="500" />
+          <Property Name="ModifiedOn" Type="datetime" />
+          <Property Name="ModifiedBy" Type="nvarchar" MaxLength="500" />
+          <Property Name="Active" Type="bit" Nullable="false" />
+          <Property Name="Deleted" Type="bit" Nullable="false" />
+          <Property Name="DeletedOn" Type="datetime" />
+          <Property Name="HasLetterGeneration" Type="bit" Nullable="false" />
+          <Property Name="CommunicateByFTP" Type="bit" Nullable="false" />
+          <Property Name="RestrictPaymentDates" Type="bit" Nullable="false" />
+          <Property Name="AllowedPaymentDates" Type="nvarchar" MaxLength="500" />
+          <Property Name="KeepFTPHistoryInMonths" Type="int" Nullable="false" />
+          <Property Name="ProductConfig" Type="nvarchar" MaxLength="1" />
+        </EntityType>
+        <EntityType Name="DdSchemeType">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="500" Nullable="false" />
+        </EntityType>
+        <EntityType Name="FeeType">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="DefaultFeeExclVAT" Type="decimal" Precision="18" Scale="4" Nullable="false" />
+          <Property Name="DisplayOrder" Type="int" Nullable="false" />
+          <Property Name="Category" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="FileType">
+          <Key>
+            <PropertyRef Name="FileTypeId" />
+          </Key>
+          <Property Name="FileTypeId" Type="int" Nullable="false" />
+          <Property Name="FileType" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="FileTypeNote" Type="nvarchar" MaxLength="200" />
+        </EntityType>
+        <EntityType Name="Permission">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Permission" Type="nvarchar" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="PermissionGrp">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="PermissionGroup" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="PermissionGrp_Permission_Mapping">
+          <Key>
+            <PropertyRef Name="PermissionGrp_Id" />
+            <PropertyRef Name="Permission_Id" />
+          </Key>
+          <Property Name="PermissionGrp_Id" Type="int" Nullable="false" />
+          <Property Name="Permission_Id" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Role">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="Role" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Scheme_DdInstructionAttribute_Mapping">
+          <Key>
+            <PropertyRef Name="DdScheme_Id" />
+            <PropertyRef Name="DdInstructionAttribute_Id" />
+          </Key>
+          <Property Name="DdScheme_Id" Type="int" Nullable="false" />
+          <Property Name="DdInstructionAttribute_Id" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Setting">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="200" Nullable="false" />
+          <Property Name="Value" Type="nvarchar" MaxLength="2000" Nullable="false" />
+          <Property Name="Client_Id" Type="int" Nullable="false" />
+          <Property Name="Scheme_Id" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="principal_id" Type="int" Nullable="false" />
+          <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="version" Type="int" />
+          <Property Name="definition" Type="varbinary(max)" />
+        </EntityType>
+        <EntityType Name="Title">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <Association Name="Address_Country">
+          <End Role="Country" Type="Self.Country" Multiplicity="0..1" />
+          <End Role="Address" Type="Self.Address" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Country">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Address">
+              <PropertyRef Name="CountryId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Client_Address">
+          <End Role="Address" Type="Self.Address" Multiplicity="0..1" />
+          <End Role="Client" Type="Self.Client" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Address">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Client">
+              <PropertyRef Name="ClientAddress_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Client_Address1">
+          <End Role="Address" Type="Self.Address" Multiplicity="0..1" />
+          <End Role="Client" Type="Self.Client" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Address">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Client">
+              <PropertyRef Name="BillingAddress_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Client_Address2">
+          <End Role="Address" Type="Self.Address" Multiplicity="0..1" />
+          <End Role="Client" Type="Self.Client" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Address">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Client">
+              <PropertyRef Name="ShippingAddress_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Client_ClientCategory_Mapping_Client">
+          <End Role="Client" Type="Self.Client" Multiplicity="1" />
+          <End Role="Client_ClientCategory_Mapping" Type="Self.Client_ClientCategory_Mapping" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Client">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Client_ClientCategory_Mapping">
+              <PropertyRef Name="Client_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Client_ClientCategory_Mapping_ClientCategory">
+          <End Role="ClientCategory" Type="Self.ClientCategory" Multiplicity="1" />
+          <End Role="Client_ClientCategory_Mapping" Type="Self.Client_ClientCategory_Mapping" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ClientCategory">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Client_ClientCategory_Mapping">
+              <PropertyRef Name="ClientCategory_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ClientAttributeValue_Client">
+          <End Role="Client" Type="Self.Client" Multiplicity="1" />
+          <End Role="ClientAttributeValue" Type="Self.ClientAttributeValue" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Client">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ClientAttributeValue">
+              <PropertyRef Name="Client_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ClientAttributeValue_ClientAttribute">
+          <End Role="ClientAttribute" Type="Self.ClientAttribute" Multiplicity="1" />
+          <End Role="ClientAttributeValue" Type="Self.ClientAttributeValue" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ClientAttribute">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ClientAttributeValue">
+              <PropertyRef Name="ClientAttribute_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ClientFee_Client">
+          <End Role="Client" Type="Self.Client" Multiplicity="1" />
+          <End Role="ClientFee" Type="Self.ClientFee" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Client">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ClientFee">
+              <PropertyRef Name="Client_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ClientFee_FeeType">
+          <End Role="FeeType" Type="Self.FeeType" Multiplicity="0..1" />
+          <End Role="ClientFee" Type="Self.ClientFee" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="FeeType">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ClientFee">
+              <PropertyRef Name="FeeType_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ClientNote_Client">
+          <End Role="Client" Type="Self.Client" Multiplicity="1" />
+          <End Role="ClientNote" Type="Self.ClientNote" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Client">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ClientNote">
+              <PropertyRef Name="Client_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ClientNote_NoteCategory">
+          <End Role="ClientNoteCategory" Type="Self.ClientNoteCategory" Multiplicity="0..1" />
+          <End Role="ClientNote" Type="Self.ClientNote" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ClientNoteCategory">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ClientNote">
+              <PropertyRef Name="ClientNoteCategory_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Contact_Address">
+          <End Role="Address" Type="Self.Address" Multiplicity="0..1" />
+          <End Role="Contact" Type="Self.Contact" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Address">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Contact">
+              <PropertyRef Name="ContactAddress_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Contact_Address1">
+          <End Role="Address" Type="Self.Address" Multiplicity="0..1" />
+          <End Role="Contact" Type="Self.Contact" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Address">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Contact">
+              <PropertyRef Name="HomeAddress_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Contact_Client">
+          <End Role="Client" Type="Self.Client" Multiplicity="1" />
+          <End Role="Contact" Type="Self.Contact" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Client">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Contact">
+              <PropertyRef Name="Client_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Contact_ContactCategory_Mapping_Contact">
+          <End Role="Contact" Type="Self.Contact" Multiplicity="1" />
+          <End Role="Contact_ContactCategory_Mapping" Type="Self.Contact_ContactCategory_Mapping" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Contact">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Contact_ContactCategory_Mapping">
+              <PropertyRef Name="Contact_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Contact_ContactCategory_Mapping_ContactCategory">
+          <End Role="ContactCategory" Type="Self.ContactCategory" Multiplicity="1" />
+          <End Role="Contact_ContactCategory_Mapping" Type="Self.Contact_ContactCategory_Mapping" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ContactCategory">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Contact_ContactCategory_Mapping">
+              <PropertyRef Name="ContactCategory_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Contact_FileType_Mapping_Contact">
+          <End Role="Contact" Type="Self.Contact" Multiplicity="1" />
+          <End Role="Contact_FileType_Mapping" Type="Self.Contact_FileType_Mapping" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Contact">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Contact_FileType_Mapping">
+              <PropertyRef Name="Contact_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Contact_FileType_Mapping_FileType">
+          <End Role="FileType" Type="Self.FileType" Multiplicity="1" />
+          <End Role="Contact_FileType_Mapping" Type="Self.Contact_FileType_Mapping" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="FileType">
+              <PropertyRef Name="FileTypeId" />
+            </Principal>
+            <Dependent Role="Contact_FileType_Mapping">
+              <PropertyRef Name="FileType_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Contact_Permission_Mapping_Contact">
+          <End Role="Contact" Type="Self.Contact" Multiplicity="1" />
+          <End Role="Contact_Permission_Mapping" Type="Self.Contact_Permission_Mapping" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Contact">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Contact_Permission_Mapping">
+              <PropertyRef Name="Contact_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Contact_Permission_Mapping_DdScheme">
+          <End Role="DdScheme" Type="Self.DdScheme" Multiplicity="1" />
+          <End Role="Contact_Permission_Mapping" Type="Self.Contact_Permission_Mapping" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DdScheme">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Contact_Permission_Mapping">
+              <PropertyRef Name="Scheme_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Contact_Permission_Mapping_Permission">
+          <End Role="Permission" Type="Self.Permission" Multiplicity="1" />
+          <End Role="Contact_Permission_Mapping" Type="Self.Contact_Permission_Mapping" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Permission">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Contact_Permission_Mapping">
+              <PropertyRef Name="Permission_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Contact_Role_Mapping_Contact">
+          <End Role="Contact" Type="Self.Contact" Multiplicity="1" />
+          <End Role="Contact_Role_Mapping" Type="Self.Contact_Role_Mapping" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Contact">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Contact_Role_Mapping">
+              <PropertyRef Name="ContactId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Contact_Role_Mapping_Role">
+          <End Role="Role" Type="Self.Role" Multiplicity="1" />
+          <End Role="Contact_Role_Mapping" Type="Self.Contact_Role_Mapping" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Role">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Contact_Role_Mapping">
+              <PropertyRef Name="RoleId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Contract_Client">
+          <End Role="Client" Type="Self.Client" Multiplicity="1" />
+          <End Role="Contract" Type="Self.Contract" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Client">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Contract">
+              <PropertyRef Name="Client_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_DdInstruction_DdScheme">
+          <End Role="DdScheme" Type="Self.DdScheme" Multiplicity="1" />
+          <End Role="DdInstruction" Type="Self.DdInstruction" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DdScheme">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="DdInstruction">
+              <PropertyRef Name="Scheme_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_DdInstructionAttributeValue_DdInstruction">
+          <End Role="DdInstruction" Type="Self.DdInstruction" Multiplicity="1" />
+          <End Role="DdInstructionAttributeValue" Type="Self.DdInstructionAttributeValue" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DdInstruction">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="DdInstructionAttributeValue">
+              <PropertyRef Name="DdInstruction_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_DdInstructionAttributeValue_DdInstructionAttribute">
+          <End Role="DdInstructionAttribute" Type="Self.DdInstructionAttribute" Multiplicity="1" />
+          <End Role="DdInstructionAttributeValue" Type="Self.DdInstructionAttributeValue" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DdInstructionAttribute">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="DdInstructionAttributeValue">
+              <PropertyRef Name="DdInstructionAttribute_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_DdInstructionNote_DdInstruction">
+          <End Role="DdInstruction" Type="Self.DdInstruction" Multiplicity="1" />
+          <End Role="DdInstructionNote" Type="Self.DdInstructionNote" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DdInstruction">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="DdInstructionNote">
+              <PropertyRef Name="DdInstruction_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_DdInstructionNote_DdInstructionNoteCategory">
+          <End Role="DdInstructionNoteCategory" Type="Self.DdInstructionNoteCategory" Multiplicity="0..1" />
+          <End Role="DdInstructionNote" Type="Self.DdInstructionNote" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DdInstructionNoteCategory">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="DdInstructionNote">
+              <PropertyRef Name="DdInstructionNoteCategory_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_DdScheme_Client">
+          <End Role="Client" Type="Self.Client" Multiplicity="1" />
+          <End Role="DdScheme" Type="Self.DdScheme" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Client">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="DdScheme">
+              <PropertyRef Name="Client_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_DdScheme_DdSchemeType">
+          <End Role="DdSchemeType" Type="Self.DdSchemeType" Multiplicity="1" />
+          <End Role="DdScheme" Type="Self.DdScheme" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DdSchemeType">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="DdScheme">
+              <PropertyRef Name="SchemeType_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_NoteTag_ClientNote">
+          <End Role="ClientNote" Type="Self.ClientNote" Multiplicity="0..1" />
+          <End Role="ClientNoteTag" Type="Self.ClientNoteTag" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ClientNote">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ClientNoteTag">
+              <PropertyRef Name="ClientNote_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PermissionGrp_Permission_Mapping_Permission">
+          <End Role="Permission" Type="Self.Permission" Multiplicity="1" />
+          <End Role="PermissionGrp_Permission_Mapping" Type="Self.PermissionGrp_Permission_Mapping" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Permission">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="PermissionGrp_Permission_Mapping">
+              <PropertyRef Name="Permission_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PermissionGrp_Permission_Mapping_PermissionGrp">
+          <End Role="PermissionGrp" Type="Self.PermissionGrp" Multiplicity="1" />
+          <End Role="PermissionGrp_Permission_Mapping" Type="Self.PermissionGrp_Permission_Mapping" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PermissionGrp">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="PermissionGrp_Permission_Mapping">
+              <PropertyRef Name="PermissionGrp_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Scheme_DdInstructionAttribute_Mapping_DdInstructionAttribute">
+          <End Role="DdInstructionAttribute" Type="Self.DdInstructionAttribute" Multiplicity="1" />
+          <End Role="Scheme_DdInstructionAttribute_Mapping" Type="Self.Scheme_DdInstructionAttribute_Mapping" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DdInstructionAttribute">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Scheme_DdInstructionAttribute_Mapping">
+              <PropertyRef Name="DdInstructionAttribute_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Scheme_DdInstructionAttribute_Mapping_DdScheme">
+          <End Role="DdScheme" Type="Self.DdScheme" Multiplicity="1" />
+          <End Role="Scheme_DdInstructionAttribute_Mapping" Type="Self.Scheme_DdInstructionAttribute_Mapping" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DdScheme">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Scheme_DdInstructionAttribute_Mapping">
+              <PropertyRef Name="DdScheme_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="TrinityModelStoreContainer">
+          <EntitySet Name="Address" EntityType="Self.Address" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ApplicationSetting" EntityType="Self.ApplicationSetting" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Client" EntityType="Self.Client" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Client_Address_Mapping" EntityType="Self.Client_Address_Mapping" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Client_ClientCategory_Mapping" EntityType="Self.Client_ClientCategory_Mapping" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ClientAttribute" EntityType="Self.ClientAttribute" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ClientAttributeValue" EntityType="Self.ClientAttributeValue" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ClientCategory" EntityType="Self.ClientCategory" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ClientFee" EntityType="Self.ClientFee" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ClientNote" EntityType="Self.ClientNote" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ClientNoteCategory" EntityType="Self.ClientNoteCategory" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ClientNoteTag" EntityType="Self.ClientNoteTag" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Contact" EntityType="Self.Contact" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Contact_ContactCategory_Mapping" EntityType="Self.Contact_ContactCategory_Mapping" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Contact_FileType_Mapping" EntityType="Self.Contact_FileType_Mapping" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Contact_Permission_Mapping" EntityType="Self.Contact_Permission_Mapping" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Contact_Role_Mapping" EntityType="Self.Contact_Role_Mapping" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ContactCategory" EntityType="Self.ContactCategory" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Contract" EntityType="Self.Contract" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Country" EntityType="Self.Country" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="DdInstruction" EntityType="Self.DdInstruction" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="DdInstructionAttribute" EntityType="Self.DdInstructionAttribute" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="DdInstructionAttributeValue" EntityType="Self.DdInstructionAttributeValue" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="DdInstructionNote" EntityType="Self.DdInstructionNote" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="DdInstructionNoteCategory" EntityType="Self.DdInstructionNoteCategory" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="DdNewSignUpControls" EntityType="Self.DdNewSignUpControls" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="DdScheme" EntityType="Self.DdScheme" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="DdSchemeType" EntityType="Self.DdSchemeType" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="FeeType" EntityType="Self.FeeType" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="FileType" EntityType="Self.FileType" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Permission" EntityType="Self.Permission" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PermissionGrp" EntityType="Self.PermissionGrp" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PermissionGrp_Permission_Mapping" EntityType="Self.PermissionGrp_Permission_Mapping" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Role" EntityType="Self.Role" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Scheme_DdInstructionAttribute_Mapping" EntityType="Self.Scheme_DdInstructionAttribute_Mapping" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Setting" EntityType="Self.Setting" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Title" EntityType="Self.Title" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="Address_Country" Association="Self.Address_Country">
+            <End Role="Country" EntitySet="Country" />
+            <End Role="Address" EntitySet="Address" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Client_Address" Association="Self.FK_Client_Address">
+            <End Role="Address" EntitySet="Address" />
+            <End Role="Client" EntitySet="Client" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Client_Address1" Association="Self.FK_Client_Address1">
+            <End Role="Address" EntitySet="Address" />
+            <End Role="Client" EntitySet="Client" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Client_Address2" Association="Self.FK_Client_Address2">
+            <End Role="Address" EntitySet="Address" />
+            <End Role="Client" EntitySet="Client" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Client_ClientCategory_Mapping_Client" Association="Self.FK_Client_ClientCategory_Mapping_Client">
+            <End Role="Client" EntitySet="Client" />
+            <End Role="Client_ClientCategory_Mapping" EntitySet="Client_ClientCategory_Mapping" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Client_ClientCategory_Mapping_ClientCategory" Association="Self.FK_Client_ClientCategory_Mapping_ClientCategory">
+            <End Role="ClientCategory" EntitySet="ClientCategory" />
+            <End Role="Client_ClientCategory_Mapping" EntitySet="Client_ClientCategory_Mapping" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ClientAttributeValue_Client" Association="Self.FK_ClientAttributeValue_Client">
+            <End Role="Client" EntitySet="Client" />
+            <End Role="ClientAttributeValue" EntitySet="ClientAttributeValue" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ClientAttributeValue_ClientAttribute" Association="Self.FK_ClientAttributeValue_ClientAttribute">
+            <End Role="ClientAttribute" EntitySet="ClientAttribute" />
+            <End Role="ClientAttributeValue" EntitySet="ClientAttributeValue" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ClientFee_Client" Association="Self.FK_ClientFee_Client">
+            <End Role="Client" EntitySet="Client" />
+            <End Role="ClientFee" EntitySet="ClientFee" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ClientFee_FeeType" Association="Self.FK_ClientFee_FeeType">
+            <End Role="FeeType" EntitySet="FeeType" />
+            <End Role="ClientFee" EntitySet="ClientFee" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ClientNote_Client" Association="Self.FK_ClientNote_Client">
+            <End Role="Client" EntitySet="Client" />
+            <End Role="ClientNote" EntitySet="ClientNote" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ClientNote_NoteCategory" Association="Self.FK_ClientNote_NoteCategory">
+            <End Role="ClientNoteCategory" EntitySet="ClientNoteCategory" />
+            <End Role="ClientNote" EntitySet="ClientNote" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Contact_Address" Association="Self.FK_Contact_Address">
+            <End Role="Address" EntitySet="Address" />
+            <End Role="Contact" EntitySet="Contact" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Contact_Address1" Association="Self.FK_Contact_Address1">
+            <End Role="Address" EntitySet="Address" />
+            <End Role="Contact" EntitySet="Contact" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Contact_Client" Association="Self.FK_Contact_Client">
+            <End Role="Client" EntitySet="Client" />
+            <End Role="Contact" EntitySet="Contact" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Contact_ContactCategory_Mapping_Contact" Association="Self.FK_Contact_ContactCategory_Mapping_Contact">
+            <End Role="Contact" EntitySet="Contact" />
+            <End Role="Contact_ContactCategory_Mapping" EntitySet="Contact_ContactCategory_Mapping" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Contact_ContactCategory_Mapping_ContactCategory" Association="Self.FK_Contact_ContactCategory_Mapping_ContactCategory">
+            <End Role="ContactCategory" EntitySet="ContactCategory" />
+            <End Role="Contact_ContactCategory_Mapping" EntitySet="Contact_ContactCategory_Mapping" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Contact_FileType_Mapping_Contact" Association="Self.FK_Contact_FileType_Mapping_Contact">
+            <End Role="Contact" EntitySet="Contact" />
+            <End Role="Contact_FileType_Mapping" EntitySet="Contact_FileType_Mapping" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Contact_FileType_Mapping_FileType" Association="Self.FK_Contact_FileType_Mapping_FileType">
+            <End Role="FileType" EntitySet="FileType" />
+            <End Role="Contact_FileType_Mapping" EntitySet="Contact_FileType_Mapping" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Contact_Permission_Mapping_Contact" Association="Self.FK_Contact_Permission_Mapping_Contact">
+            <End Role="Contact" EntitySet="Contact" />
+            <End Role="Contact_Permission_Mapping" EntitySet="Contact_Permission_Mapping" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Contact_Permission_Mapping_DdScheme" Association="Self.FK_Contact_Permission_Mapping_DdScheme">
+            <End Role="DdScheme" EntitySet="DdScheme" />
+            <End Role="Contact_Permission_Mapping" EntitySet="Contact_Permission_Mapping" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Contact_Permission_Mapping_Permission" Association="Self.FK_Contact_Permission_Mapping_Permission">
+            <End Role="Permission" EntitySet="Permission" />
+            <End Role="Contact_Permission_Mapping" EntitySet="Contact_Permission_Mapping" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Contact_Role_Mapping_Contact" Association="Self.FK_Contact_Role_Mapping_Contact">
+            <End Role="Contact" EntitySet="Contact" />
+            <End Role="Contact_Role_Mapping" EntitySet="Contact_Role_Mapping" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Contact_Role_Mapping_Role" Association="Self.FK_Contact_Role_Mapping_Role">
+            <End Role="Role" EntitySet="Role" />
+            <End Role="Contact_Role_Mapping" EntitySet="Contact_Role_Mapping" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Contract_Client" Association="Self.FK_Contract_Client">
+            <End Role="Client" EntitySet="Client" />
+            <End Role="Contract" EntitySet="Contract" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DdInstruction_DdScheme" Association="Self.FK_DdInstruction_DdScheme">
+            <End Role="DdScheme" EntitySet="DdScheme" />
+            <End Role="DdInstruction" EntitySet="DdInstruction" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DdInstructionAttributeValue_DdInstruction" Association="Self.FK_DdInstructionAttributeValue_DdInstruction">
+            <End Role="DdInstruction" EntitySet="DdInstruction" />
+            <End Role="DdInstructionAttributeValue" EntitySet="DdInstructionAttributeValue" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DdInstructionAttributeValue_DdInstructionAttribute" Association="Self.FK_DdInstructionAttributeValue_DdInstructionAttribute">
+            <End Role="DdInstructionAttribute" EntitySet="DdInstructionAttribute" />
+            <End Role="DdInstructionAttributeValue" EntitySet="DdInstructionAttributeValue" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DdInstructionNote_DdInstruction" Association="Self.FK_DdInstructionNote_DdInstruction">
+            <End Role="DdInstruction" EntitySet="DdInstruction" />
+            <End Role="DdInstructionNote" EntitySet="DdInstructionNote" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DdInstructionNote_DdInstructionNoteCategory" Association="Self.FK_DdInstructionNote_DdInstructionNoteCategory">
+            <End Role="DdInstructionNoteCategory" EntitySet="DdInstructionNoteCategory" />
+            <End Role="DdInstructionNote" EntitySet="DdInstructionNote" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DdScheme_Client" Association="Self.FK_DdScheme_Client">
+            <End Role="Client" EntitySet="Client" />
+            <End Role="DdScheme" EntitySet="DdScheme" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DdScheme_DdSchemeType" Association="Self.FK_DdScheme_DdSchemeType">
+            <End Role="DdSchemeType" EntitySet="DdSchemeType" />
+            <End Role="DdScheme" EntitySet="DdScheme" />
+          </AssociationSet>
+          <AssociationSet Name="FK_NoteTag_ClientNote" Association="Self.FK_NoteTag_ClientNote">
+            <End Role="ClientNote" EntitySet="ClientNote" />
+            <End Role="ClientNoteTag" EntitySet="ClientNoteTag" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PermissionGrp_Permission_Mapping_Permission" Association="Self.FK_PermissionGrp_Permission_Mapping_Permission">
+            <End Role="Permission" EntitySet="Permission" />
+            <End Role="PermissionGrp_Permission_Mapping" EntitySet="PermissionGrp_Permission_Mapping" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PermissionGrp_Permission_Mapping_PermissionGrp" Association="Self.FK_PermissionGrp_Permission_Mapping_PermissionGrp">
+            <End Role="PermissionGrp" EntitySet="PermissionGrp" />
+            <End Role="PermissionGrp_Permission_Mapping" EntitySet="PermissionGrp_Permission_Mapping" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Scheme_DdInstructionAttribute_Mapping_DdInstructionAttribute" Association="Self.FK_Scheme_DdInstructionAttribute_Mapping_DdInstructionAttribute">
+            <End Role="DdInstructionAttribute" EntitySet="DdInstructionAttribute" />
+            <End Role="Scheme_DdInstructionAttribute_Mapping" EntitySet="Scheme_DdInstructionAttribute_Mapping" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Scheme_DdInstructionAttribute_Mapping_DdScheme" Association="Self.FK_Scheme_DdInstructionAttribute_Mapping_DdScheme">
+            <End Role="DdScheme" EntitySet="DdScheme" />
+            <End Role="Scheme_DdInstructionAttribute_Mapping" EntitySet="Scheme_DdInstructionAttribute_Mapping" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="TrinityModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="ClientAttribute">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="400" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="IsRequired" Type="Boolean" Nullable="false" />
+          <Property Name="AttributeControlTypeId" Type="Int32" Nullable="false" />
+          <Property Name="DisplayOrder" Type="Int32" Nullable="false" />
+          <Property Name="AdminOnly" Type="Boolean" Nullable="false" />
+          <Property Name="AttributeOptions" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="ClientAttributeValues" Relationship="Self.FK_ClientAttributeValue_ClientAttribute" FromRole="ClientAttribute" ToRole="ClientAttributeValue" />
+        </EntityType>
+        <EntityType Name="ClientAttributeValue">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="400" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Client_Id" Type="Int32" Nullable="false" />
+          <Property Name="ClientAttribute_Id" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="ClientAttribute" Relationship="Self.FK_ClientAttributeValue_ClientAttribute" FromRole="ClientAttributeValue" ToRole="ClientAttribute" />
+          <NavigationProperty Name="Client" Relationship="TrinityModel.FK_ClientAttributeValue_Client" FromRole="ClientAttributeValue" ToRole="Client" />
+        </EntityType>
+        <EntityType Name="ClientCategory">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="500" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Clients" Relationship="TrinityModel.Client_ClientCategory_Mapping" FromRole="ClientCategory" ToRole="Client" />
+        </EntityType>
+        <EntityType Name="ClientFee">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="FeeType_Id" Type="Int32" />
+          <Property Name="Client_Id" Type="Int32" Nullable="false" />
+          <Property Name="Scheme_Id" Type="Int32" Nullable="false" />
+          <Property Name="FeeExclVAT" Type="Decimal" Precision="18" Scale="4" Nullable="false" />
+          <NavigationProperty Name="FeeType" Relationship="Self.FK_ClientFee_FeeType" FromRole="ClientFee" ToRole="FeeType" />
+          <NavigationProperty Name="Client" Relationship="TrinityModel.FK_ClientFee_Client" FromRole="ClientFee" ToRole="Client" />
+        </EntityType>
+        <EntityType Name="ClientNoteCategory">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="Name" Type="String" MaxLength="500" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="ClientNotes" Relationship="TrinityModel.FK_ClientNote_NoteCategory" FromRole="ClientNoteCategory" ToRole="ClientNote" />
+        </EntityType>
+        <EntityType Name="ClientNoteTag">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ClientNote_Id" Type="Int32" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="ClientNote" Relationship="TrinityModel.FK_NoteTag_ClientNote" FromRole="ClientNoteTag" ToRole="ClientNote" />
+        </EntityType>
+        <EntityType Name="Contact_Permission_Mapping">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="Contact_Id" Type="Int32" Nullable="false" />
+          <Property Name="Scheme_Id" Type="Int32" Nullable="false" />
+          <Property Name="Permission_Id" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="DdScheme" Relationship="Self.FK_Contact_Permission_Mapping_DdScheme" FromRole="Contact_Permission_Mapping" ToRole="DdScheme" />
+          <NavigationProperty Name="Permission" Relationship="Self.FK_Contact_Permission_Mapping_Permission" FromRole="Contact_Permission_Mapping" ToRole="Permission" />
+          <NavigationProperty Name="Contact" Relationship="TrinityModel.FK_Contact_Permission_Mapping_Contact" FromRole="Contact_Permission_Mapping" ToRole="Contact" />
+        </EntityType>
+        <EntityType Name="ContactCategory">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="500" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Contacts" Relationship="TrinityModel.Contact_ContactCategory_Mapping" FromRole="ContactCategory" ToRole="Contact" />
+        </EntityType>
+        <EntityType Name="Contract">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Client_Id" Type="Int32" Nullable="false" />
+          <Property Name="Name" Type="String" MaxLength="500" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Description" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ContractType_Id" Type="Int32" Nullable="false" />
+          <Property Name="BillingAddress_Id" Type="Int32" Nullable="false" />
+          <Property Name="CreatedOn" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="CreatedBy" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="Recurs" Type="Boolean" />
+          <Property Name="RecurrenceFrequency" Type="Int32" />
+          <Property Name="StartDate" Type="DateTime" Precision="3" />
+          <Property Name="EndDate" Type="DateTime" Precision="3" />
+          <Property Name="ActualEndDate" Type="DateTime" Precision="3" />
+          <Property Name="ContractValue" Type="Decimal" Precision="18" Scale="4" />
+          <Property Name="Closed" Type="Boolean" />
+          <Property Name="ClosedDate" Type="DateTime" Precision="3" />
+          <Property Name="Notes" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="DailyRate" Type="Decimal" Precision="18" Scale="4" />
+          <Property Name="RenewalID" Type="Int32" />
+          <Property Name="Autobill" Type="Boolean" />
+          <Property Name="Origstartdate" Type="DateTime" Precision="3" />
+          <Property Name="AutoBillFrequency" Type="Int32" />
+          <Property Name="NextAutoBill" Type="DateTime" Precision="3" />
+          <Property Name="ContractHistory" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="DefaultContract" Type="Boolean" />
+          <Property Name="DirectDebit" Type="Boolean" />
+          <NavigationProperty Name="Client" Relationship="TrinityModel.FK_Contract_Client" FromRole="Contract" ToRole="Client" />
+        </EntityType>
+        <EntityType Name="Country">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Addresses" Relationship="TrinityModel.Address_Country" FromRole="Country" ToRole="Address" />
+        </EntityType>
+        <EntityType Name="DdInstruction">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Scheme_Id" Type="Int32" Nullable="false" />
+          <Property Name="DdReference" Type="String" MaxLength="18" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="DdiActive" Type="Boolean" Nullable="false" />
+          <Property Name="AccountName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="AccountNumber" Type="String" MaxLength="8" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="SortCode" Type="String" MaxLength="6" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ScheduleType_Id" Type="Int32" Nullable="false" />
+          <Property Name="FirstPaymentAmount" Type="Decimal" Precision="18" Scale="4" />
+          <Property Name="FirstPaymentDate" Type="DateTime" Precision="3" />
+          <Property Name="ScheduledPaymentAmount" Type="Decimal" Precision="18" Scale="4" />
+          <Property Name="ScheduledPaymentDate" Type="DateTime" Precision="3" />
+          <Property Name="ScheduledPaymentCount" Type="Int32" />
+          <Property Name="LastPaymentAmount" Type="Decimal" Precision="18" Scale="4" />
+          <Property Name="LastPaymentDate" Type="DateTime" Precision="3" />
+          <Property Name="Frequency" Type="String" MaxLength="1" FixedLength="false" Unicode="true" />
+          <Property Name="FrequencyInterval" Type="Int32" />
+          <Property Name="DayOfWeek" Type="Int32" />
+          <Property Name="NewInstructionRequired" Type="Boolean" Nullable="false" />
+          <Property Name="NewInstructionInPlace" Type="DateTime" Precision="3" />
+          <Property Name="CancelDate" Type="DateTime" Precision="3" />
+          <Property Name="CancelNote" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="CancelCode" Type="String" MaxLength="4" FixedLength="false" Unicode="true" />
+          <Property Name="CreatedOn" Type="DateTime" Precision="3" />
+          <Property Name="CreatedBy" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="ModifiedOn" Type="DateTime" Precision="3" />
+          <Property Name="ModifiedBy" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="FileAuditID" Type="String" MaxLength="32" FixedLength="false" Unicode="true" />
+          <Property Name="SignUpType" Type="String" MaxLength="1" FixedLength="false" Unicode="true" />
+          <Property Name="AmendCode" Type="String" MaxLength="1" FixedLength="false" Unicode="true" />
+          <Property Name="UnpaidSeqCount" Type="Int32" Nullable="false" />
+          <Property Name="AmendedOn" Type="DateTime" Precision="3" />
+          <Property Name="AmendReportFlag" Type="Int32" />
+          <Property Name="ProductID" Type="Int32" Nullable="false" />
+          <Property Name="DdiTagID" Type="Int32" />
+          <Property Name="DdiTimestamp" Type="Binary" MaxLength="8" FixedLength="true" annotation:StoreGeneratedPattern="Computed" />
+          <Property Name="Title" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="FirstName" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="MiddleName" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="LastName" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="JobTitle" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="PhoneNumber" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="MobileNumber" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="Email" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="ContactAddress_Id" Type="Int32" />
+          <Property Name="AlternateAddress_Id" Type="Int32" />
+          <NavigationProperty Name="DdScheme" Relationship="Self.FK_DdInstruction_DdScheme" FromRole="DdInstruction" ToRole="DdScheme" />
+          <NavigationProperty Name="DdInstructionAttributeValues" Relationship="Self.FK_DdInstructionAttributeValue_DdInstruction" FromRole="DdInstruction" ToRole="DdInstructionAttributeValue" />
+          <NavigationProperty Name="DdInstructionNotes" Relationship="Self.FK_DdInstructionNote_DdInstruction" FromRole="DdInstruction" ToRole="DdInstructionNote" />
+        </EntityType>
+        <EntityType Name="DdInstructionAttribute">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="400" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="IsRequired" Type="Boolean" Nullable="false" />
+          <Property Name="AttributeControlType_Id" Type="Int32" Nullable="false" />
+          <Property Name="DisplayOrder" Type="Int32" Nullable="false" />
+          <Property Name="AdminOnly" Type="Boolean" Nullable="false" />
+          <Property Name="AttributeOptions" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="AllSchemes" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="DdInstructionAttributeValues" Relationship="Self.FK_DdInstructionAttributeValue_DdInstructionAttribute" FromRole="DdInstructionAttribute" ToRole="DdInstructionAttributeValue" />
+          <NavigationProperty Name="DdSchemes" Relationship="Self.Scheme_DdInstructionAttribute_Mapping" FromRole="DdInstructionAttribute" ToRole="DdScheme" />
+        </EntityType>
+        <EntityType Name="DdInstructionAttributeValue">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="400" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="DdInstruction_Id" Type="Int32" Nullable="false" />
+          <Property Name="DdInstructionAttribute_Id" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="DdInstruction" Relationship="Self.FK_DdInstructionAttributeValue_DdInstruction" FromRole="DdInstructionAttributeValue" ToRole="DdInstruction" />
+          <NavigationProperty Name="DdInstructionAttribute" Relationship="Self.FK_DdInstructionAttributeValue_DdInstructionAttribute" FromRole="DdInstructionAttributeValue" ToRole="DdInstructionAttribute" />
+        </EntityType>
+        <EntityType Name="DdInstructionNote">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="DdInstruction_Id" Type="Int32" Nullable="false" />
+          <Property Name="DdInstructionNoteCategory_Id" Type="Int32" />
+          <Property Name="NoteContent" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="CreatedOn" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="CreatedBy" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="DdInstruction" Relationship="Self.FK_DdInstructionNote_DdInstruction" FromRole="DdInstructionNote" ToRole="DdInstruction" />
+          <NavigationProperty Name="DdInstructionNoteCategory" Relationship="Self.FK_DdInstructionNote_DdInstructionNoteCategory" FromRole="DdInstructionNote" ToRole="DdInstructionNoteCategory" />
+        </EntityType>
+        <EntityType Name="DdInstructionNoteCategory">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="500" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="DdInstructionNotes" Relationship="Self.FK_DdInstructionNote_DdInstructionNoteCategory" FromRole="DdInstructionNoteCategory" ToRole="DdInstructionNote" />
+        </EntityType>
+        <EntityType Name="DdNewSignUpControl">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ControlId" Type="String" MaxLength="500" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ScriptDefault" Type="String" MaxLength="3000" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="DdScheme">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="SUN" Type="String" MaxLength="6" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Client_Id" Type="Int32" Nullable="false" />
+          <Property Name="ManagedByClient_Id" Type="Int32" />
+          <Property Name="BillingAddress_Id" Type="Int32" />
+          <Property Name="SchemeType_Id" Type="Int32" Nullable="false" />
+          <Property Name="SchemeCode" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="RemittersName" Type="String" MaxLength="18" FixedLength="false" Unicode="true" />
+          <Property Name="AccountName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="SortCode" Type="String" MaxLength="6" FixedLength="false" Unicode="true" />
+          <Property Name="AccountNumber" Type="String" MaxLength="8" FixedLength="false" Unicode="true" />
+          <Property Name="WebOnly" Type="Boolean" Nullable="false" />
+          <Property Name="WebScheme_Id" Type="Int32" />
+          <Property Name="SendBacsNewInstruction" Type="Boolean" Nullable="false" />
+          <Property Name="NewInstructionNoticeInDays" Type="Int32" Nullable="false" />
+          <Property Name="SendBacsCancellation" Type="Boolean" Nullable="false" />
+          <Property Name="BacsCancellationWaitInDays" Type="Int32" />
+          <Property Name="DdRefMustBeUnique" Type="Boolean" Nullable="false" />
+          <Property Name="ScheduleLastExtended" Type="DateTime" Precision="3" />
+          <Property Name="Represent" Type="Boolean" Nullable="false" />
+          <Property Name="RepresentOffset" Type="Int32" />
+          <Property Name="RepresentSchedule" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="SchemeLocked" Type="Boolean" Nullable="false" />
+          <Property Name="SchemeLockedOn" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="CreatedOn" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="CreatedBy" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="ModifiedOn" Type="DateTime" Precision="3" />
+          <Property Name="ModifiedBy" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="Active" Type="Boolean" Nullable="false" />
+          <Property Name="Deleted" Type="Boolean" Nullable="false" />
+          <Property Name="DeletedOn" Type="DateTime" Precision="3" />
+          <Property Name="HasLetterGeneration" Type="Boolean" Nullable="false" />
+          <Property Name="CommunicateByFTP" Type="Boolean" Nullable="false" />
+          <Property Name="RestrictPaymentDates" Type="Boolean" Nullable="false" />
+          <Property Name="AllowedPaymentDates" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="KeepFTPHistoryInMonths" Type="Int32" Nullable="false" />
+          <Property Name="ProductConfig" Type="String" MaxLength="1" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Contact_Permission_Mapping" Relationship="Self.FK_Contact_Permission_Mapping_DdScheme" FromRole="DdScheme" ToRole="Contact_Permission_Mapping" />
+          <NavigationProperty Name="DdInstructions" Relationship="Self.FK_DdInstruction_DdScheme" FromRole="DdScheme" ToRole="DdInstruction" />
+          <NavigationProperty Name="DdSchemeType" Relationship="Self.FK_DdScheme_DdSchemeType" FromRole="DdScheme" ToRole="DdSchemeType" />
+          <NavigationProperty Name="DdInstructionAttributes" Relationship="Self.Scheme_DdInstructionAttribute_Mapping" FromRole="DdScheme" ToRole="DdInstructionAttribute" />
+          <NavigationProperty Name="Client" Relationship="TrinityModel.FK_DdScheme_Client" FromRole="DdScheme" ToRole="Client" />
+        </EntityType>
+        <EntityType Name="DdSchemeType">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="Name" Type="String" MaxLength="500" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="DdSchemes" Relationship="Self.FK_DdScheme_DdSchemeType" FromRole="DdSchemeType" ToRole="DdScheme" />
+        </EntityType>
+        <EntityType Name="FeeType">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="DefaultFeeExclVAT" Type="Decimal" Precision="18" Scale="4" Nullable="false" />
+          <Property Name="DisplayOrder" Type="Int32" Nullable="false" />
+          <Property Name="Category" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="ClientFees" Relationship="Self.FK_ClientFee_FeeType" FromRole="FeeType" ToRole="ClientFee" />
+        </EntityType>
+        <EntityType Name="FileType">
+          <Key>
+            <PropertyRef Name="FileTypeId" />
+          </Key>
+          <Property Name="FileTypeId" Type="Int32" Nullable="false" />
+          <Property Name="FileType1" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="FileTypeNote" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Contacts" Relationship="TrinityModel.Contact_FileType_Mapping" FromRole="FileType" ToRole="Contact" />
+        </EntityType>
+        <EntityType Name="Permission">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Permission1" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Contact_Permission_Mapping" Relationship="Self.FK_Contact_Permission_Mapping_Permission" FromRole="Permission" ToRole="Contact_Permission_Mapping" />
+          <NavigationProperty Name="PermissionGrps" Relationship="Self.PermissionGrp_Permission_Mapping" FromRole="Permission" ToRole="PermissionGrp" />
+        </EntityType>
+        <EntityType Name="PermissionGrp">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="PermissionGroup" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Permissions" Relationship="Self.PermissionGrp_Permission_Mapping" FromRole="PermissionGrp" ToRole="Permission" />
+        </EntityType>
+        <EntityType Name="sysdiagram">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="principal_id" Type="Int32" Nullable="false" />
+          <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="version" Type="Int32" />
+          <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+        </EntityType>
+        <Association Name="FK_ClientAttributeValue_ClientAttribute">
+          <End Role="ClientAttribute" Type="Self.ClientAttribute" Multiplicity="1" />
+          <End Role="ClientAttributeValue" Type="Self.ClientAttributeValue" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ClientAttribute">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ClientAttributeValue">
+              <PropertyRef Name="ClientAttribute_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ClientFee_FeeType">
+          <End Role="FeeType" Type="Self.FeeType" Multiplicity="0..1" />
+          <End Role="ClientFee" Type="Self.ClientFee" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="FeeType">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ClientFee">
+              <PropertyRef Name="FeeType_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Contact_Permission_Mapping_DdScheme">
+          <End Role="DdScheme" Type="Self.DdScheme" Multiplicity="1" />
+          <End Role="Contact_Permission_Mapping" Type="Self.Contact_Permission_Mapping" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DdScheme">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Contact_Permission_Mapping">
+              <PropertyRef Name="Scheme_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Contact_Permission_Mapping_Permission">
+          <End Role="Permission" Type="Self.Permission" Multiplicity="1" />
+          <End Role="Contact_Permission_Mapping" Type="Self.Contact_Permission_Mapping" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Permission">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Contact_Permission_Mapping">
+              <PropertyRef Name="Permission_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_DdInstruction_DdScheme">
+          <End Role="DdScheme" Type="Self.DdScheme" Multiplicity="1" />
+          <End Role="DdInstruction" Type="Self.DdInstruction" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DdScheme">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="DdInstruction">
+              <PropertyRef Name="Scheme_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_DdInstructionAttributeValue_DdInstruction">
+          <End Role="DdInstruction" Type="Self.DdInstruction" Multiplicity="1" />
+          <End Role="DdInstructionAttributeValue" Type="Self.DdInstructionAttributeValue" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DdInstruction">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="DdInstructionAttributeValue">
+              <PropertyRef Name="DdInstruction_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_DdInstructionNote_DdInstruction">
+          <End Role="DdInstruction" Type="Self.DdInstruction" Multiplicity="1" />
+          <End Role="DdInstructionNote" Type="Self.DdInstructionNote" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DdInstruction">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="DdInstructionNote">
+              <PropertyRef Name="DdInstruction_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_DdInstructionAttributeValue_DdInstructionAttribute">
+          <End Role="DdInstructionAttribute" Type="Self.DdInstructionAttribute" Multiplicity="1" />
+          <End Role="DdInstructionAttributeValue" Type="Self.DdInstructionAttributeValue" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DdInstructionAttribute">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="DdInstructionAttributeValue">
+              <PropertyRef Name="DdInstructionAttribute_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_DdInstructionNote_DdInstructionNoteCategory">
+          <End Role="DdInstructionNoteCategory" Type="Self.DdInstructionNoteCategory" Multiplicity="0..1" />
+          <End Role="DdInstructionNote" Type="Self.DdInstructionNote" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DdInstructionNoteCategory">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="DdInstructionNote">
+              <PropertyRef Name="DdInstructionNoteCategory_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_DdScheme_DdSchemeType">
+          <End Role="DdSchemeType" Type="Self.DdSchemeType" Multiplicity="1" />
+          <End Role="DdScheme" Type="Self.DdScheme" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DdSchemeType">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="DdScheme">
+              <PropertyRef Name="SchemeType_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="PermissionGrp_Permission_Mapping">
+          <End Role="Permission" Type="Self.Permission" Multiplicity="*" />
+          <End Role="PermissionGrp" Type="Self.PermissionGrp" Multiplicity="*" />
+        </Association>
+        <Association Name="Scheme_DdInstructionAttribute_Mapping">
+          <End Role="DdInstructionAttribute" Type="Self.DdInstructionAttribute" Multiplicity="*" />
+          <End Role="DdScheme" Type="Self.DdScheme" Multiplicity="*" />
+        </Association>
+        <EntityContainer Name="TrinityEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="ClientAttributes" EntityType="Self.ClientAttribute" />
+          <EntitySet Name="ClientAttributeValues" EntityType="Self.ClientAttributeValue" />
+          <EntitySet Name="ClientCategories" EntityType="Self.ClientCategory" />
+          <EntitySet Name="ClientFees" EntityType="Self.ClientFee" />
+          <EntitySet Name="ClientNoteCategories" EntityType="Self.ClientNoteCategory" />
+          <EntitySet Name="ClientNoteTags" EntityType="Self.ClientNoteTag" />
+          <EntitySet Name="Contact_Permission_Mapping" EntityType="Self.Contact_Permission_Mapping" />
+          <EntitySet Name="ContactCategories" EntityType="Self.ContactCategory" />
+          <EntitySet Name="Contracts" EntityType="Self.Contract" />
+          <EntitySet Name="Countries" EntityType="Self.Country" />
+          <EntitySet Name="DdInstructions" EntityType="Self.DdInstruction" />
+          <EntitySet Name="DdInstructionAttributes" EntityType="Self.DdInstructionAttribute" />
+          <EntitySet Name="DdInstructionAttributeValues" EntityType="Self.DdInstructionAttributeValue" />
+          <EntitySet Name="DdInstructionNotes" EntityType="Self.DdInstructionNote" />
+          <EntitySet Name="DdInstructionNoteCategories" EntityType="Self.DdInstructionNoteCategory" />
+          <EntitySet Name="DdNewSignUpControls" EntityType="Self.DdNewSignUpControl" />
+          <EntitySet Name="DdSchemes" EntityType="Self.DdScheme" />
+          <EntitySet Name="DdSchemeTypes" EntityType="Self.DdSchemeType" />
+          <EntitySet Name="FeeTypes" EntityType="Self.FeeType" />
+          <EntitySet Name="FileTypes" EntityType="Self.FileType" />
+          <EntitySet Name="Permissions" EntityType="Self.Permission" />
+          <EntitySet Name="PermissionGrps" EntityType="Self.PermissionGrp" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagram" />
+          <AssociationSet Name="FK_ClientAttributeValue_ClientAttribute" Association="Self.FK_ClientAttributeValue_ClientAttribute">
+            <End Role="ClientAttribute" EntitySet="ClientAttributes" />
+            <End Role="ClientAttributeValue" EntitySet="ClientAttributeValues" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ClientFee_FeeType" Association="Self.FK_ClientFee_FeeType">
+            <End Role="FeeType" EntitySet="FeeTypes" />
+            <End Role="ClientFee" EntitySet="ClientFees" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Contact_Permission_Mapping_DdScheme" Association="Self.FK_Contact_Permission_Mapping_DdScheme">
+            <End Role="DdScheme" EntitySet="DdSchemes" />
+            <End Role="Contact_Permission_Mapping" EntitySet="Contact_Permission_Mapping" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Contact_Permission_Mapping_Permission" Association="Self.FK_Contact_Permission_Mapping_Permission">
+            <End Role="Permission" EntitySet="Permissions" />
+            <End Role="Contact_Permission_Mapping" EntitySet="Contact_Permission_Mapping" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DdInstruction_DdScheme" Association="Self.FK_DdInstruction_DdScheme">
+            <End Role="DdScheme" EntitySet="DdSchemes" />
+            <End Role="DdInstruction" EntitySet="DdInstructions" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DdInstructionAttributeValue_DdInstruction" Association="Self.FK_DdInstructionAttributeValue_DdInstruction">
+            <End Role="DdInstruction" EntitySet="DdInstructions" />
+            <End Role="DdInstructionAttributeValue" EntitySet="DdInstructionAttributeValues" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DdInstructionNote_DdInstruction" Association="Self.FK_DdInstructionNote_DdInstruction">
+            <End Role="DdInstruction" EntitySet="DdInstructions" />
+            <End Role="DdInstructionNote" EntitySet="DdInstructionNotes" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DdInstructionAttributeValue_DdInstructionAttribute" Association="Self.FK_DdInstructionAttributeValue_DdInstructionAttribute">
+            <End Role="DdInstructionAttribute" EntitySet="DdInstructionAttributes" />
+            <End Role="DdInstructionAttributeValue" EntitySet="DdInstructionAttributeValues" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DdInstructionNote_DdInstructionNoteCategory" Association="Self.FK_DdInstructionNote_DdInstructionNoteCategory">
+            <End Role="DdInstructionNoteCategory" EntitySet="DdInstructionNoteCategories" />
+            <End Role="DdInstructionNote" EntitySet="DdInstructionNotes" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DdScheme_DdSchemeType" Association="Self.FK_DdScheme_DdSchemeType">
+            <End Role="DdSchemeType" EntitySet="DdSchemeTypes" />
+            <End Role="DdScheme" EntitySet="DdSchemes" />
+          </AssociationSet>
+          <AssociationSet Name="PermissionGrp_Permission_Mapping" Association="Self.PermissionGrp_Permission_Mapping">
+            <End Role="Permission" EntitySet="Permissions" />
+            <End Role="PermissionGrp" EntitySet="PermissionGrps" />
+          </AssociationSet>
+          <AssociationSet Name="Scheme_DdInstructionAttribute_Mapping" Association="Self.Scheme_DdInstructionAttribute_Mapping">
+            <End Role="DdInstructionAttribute" EntitySet="DdInstructionAttributes" />
+            <End Role="DdScheme" EntitySet="DdSchemes" />
+          </AssociationSet>
+          <EntitySet Name="Settings" EntityType="TrinityModel.Setting" />
+          <EntitySet Name="Roles" EntityType="TrinityModel.Role" />
+          <EntitySet Name="ApplicationSettings" EntityType="TrinityModel.ApplicationSetting" />
+          <EntitySet Name="ClientNotes" EntityType="TrinityModel.ClientNote" />
+          <AssociationSet Name="FK_ClientNote_NoteCategory" Association="TrinityModel.FK_ClientNote_NoteCategory">
+            <End Role="ClientNoteCategory" EntitySet="ClientNoteCategories" />
+            <End Role="ClientNote" EntitySet="ClientNotes" />
+          </AssociationSet>
+          <AssociationSet Name="FK_NoteTag_ClientNote" Association="TrinityModel.FK_NoteTag_ClientNote">
+            <End Role="ClientNote" EntitySet="ClientNotes" />
+            <End Role="ClientNoteTag" EntitySet="ClientNoteTags" />
+          </AssociationSet>
+          <EntitySet Name="Contacts" EntityType="TrinityModel.Contact" />
+          <AssociationSet Name="FK_Contact_Permission_Mapping_Contact" Association="TrinityModel.FK_Contact_Permission_Mapping_Contact">
+            <End Role="Contact" EntitySet="Contacts" />
+            <End Role="Contact_Permission_Mapping" EntitySet="Contact_Permission_Mapping" />
+          </AssociationSet>
+          <AssociationSet Name="Contact_ContactCategory_Mapping" Association="TrinityModel.Contact_ContactCategory_Mapping">
+            <End Role="Contact" EntitySet="Contacts" />
+            <End Role="ContactCategory" EntitySet="ContactCategories" />
+          </AssociationSet>
+          <AssociationSet Name="Contact_FileType_Mapping" Association="TrinityModel.Contact_FileType_Mapping">
+            <End Role="Contact" EntitySet="Contacts" />
+            <End Role="FileType" EntitySet="FileTypes" />
+          </AssociationSet>
+          <AssociationSet Name="Contact_Role_Mapping" Association="TrinityModel.Contact_Role_Mapping">
+            <End Role="Contact" EntitySet="Contacts" />
+            <End Role="Role" EntitySet="Roles" />
+          </AssociationSet>
+          <EntitySet Name="Titles" EntityType="TrinityModel.Title" />
+          <EntitySet Name="Addresses" EntityType="TrinityModel.Address" />
+          <EntitySet Name="Clients" EntityType="TrinityModel.Client" />
+          <EntitySet Name="Client_Address_Mapping" EntityType="TrinityModel.Client_Address_Mapping" />
+          <AssociationSet Name="Address_Country" Association="TrinityModel.Address_Country">
+            <End Role="Country" EntitySet="Countries" />
+            <End Role="Address" EntitySet="Addresses" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Client_Address" Association="TrinityModel.FK_Client_Address">
+            <End Role="Address" EntitySet="Addresses" />
+            <End Role="Client" EntitySet="Clients" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Client_Address1" Association="TrinityModel.FK_Client_Address1">
+            <End Role="Address" EntitySet="Addresses" />
+            <End Role="Client" EntitySet="Clients" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Client_Address2" Association="TrinityModel.FK_Client_Address2">
+            <End Role="Address" EntitySet="Addresses" />
+            <End Role="Client" EntitySet="Clients" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Contact_Address" Association="TrinityModel.FK_Contact_Address">
+            <End Role="Address" EntitySet="Addresses" />
+            <End Role="Contact" EntitySet="Contacts" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Contact_Address1" Association="TrinityModel.FK_Contact_Address1">
+            <End Role="Address" EntitySet="Addresses" />
+            <End Role="Contact" EntitySet="Contacts" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ClientAttributeValue_Client" Association="TrinityModel.FK_ClientAttributeValue_Client">
+            <End Role="Client" EntitySet="Clients" />
+            <End Role="ClientAttributeValue" EntitySet="ClientAttributeValues" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ClientFee_Client" Association="TrinityModel.FK_ClientFee_Client">
+            <End Role="Client" EntitySet="Clients" />
+            <End Role="ClientFee" EntitySet="ClientFees" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ClientNote_Client" Association="TrinityModel.FK_ClientNote_Client">
+            <End Role="Client" EntitySet="Clients" />
+            <End Role="ClientNote" EntitySet="ClientNotes" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Contact_Client" Association="TrinityModel.FK_Contact_Client">
+            <End Role="Client" EntitySet="Clients" />
+            <End Role="Contact" EntitySet="Contacts" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Contract_Client" Association="TrinityModel.FK_Contract_Client">
+            <End Role="Client" EntitySet="Clients" />
+            <End Role="Contract" EntitySet="Contracts" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DdScheme_Client" Association="TrinityModel.FK_DdScheme_Client">
+            <End Role="Client" EntitySet="Clients" />
+            <End Role="DdScheme" EntitySet="DdSchemes" />
+          </AssociationSet>
+          <AssociationSet Name="Client_ClientCategory_Mapping" Association="TrinityModel.Client_ClientCategory_Mapping">
+            <End Role="Client" EntitySet="Clients" />
+            <End Role="ClientCategory" EntitySet="ClientCategories" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="Setting">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="Value" Type="String" Nullable="false" MaxLength="2000" FixedLength="false" Unicode="true" />
+          <Property Name="Client_Id" Type="Int32" Nullable="false" />
+          <Property Name="Scheme_Id" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Role">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="Role1" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Contacts" Relationship="TrinityModel.Contact_Role_Mapping" FromRole="Role" ToRole="Contact" />
+        </EntityType>
+        <EntityType Name="ApplicationSetting">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ApplicationSettingName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Value" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="ClientNote">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Client_Id" Type="Int32" Nullable="false" />
+          <Property Name="ClientNoteCategory_Id" Type="Int32" />
+          <Property Name="NoteTitle" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="NoteContent" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="CreatedOn" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="CreatedBy" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="ModifiedOn" Type="DateTime" Precision="3" />
+          <Property Name="ModifiedBy" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="Obsolete" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="ClientNoteCategory" Relationship="TrinityModel.FK_ClientNote_NoteCategory" FromRole="ClientNote" ToRole="ClientNoteCategory" />
+          <NavigationProperty Name="ClientNoteTags" Relationship="TrinityModel.FK_NoteTag_ClientNote" FromRole="ClientNote" ToRole="ClientNoteTag" />
+          <NavigationProperty Name="Client" Relationship="TrinityModel.FK_ClientNote_Client" FromRole="ClientNote" ToRole="Client" />
+        </EntityType>
+        <Association Name="FK_ClientNote_NoteCategory">
+          <End Type="TrinityModel.ClientNoteCategory" Role="ClientNoteCategory" Multiplicity="0..1" />
+          <End Type="TrinityModel.ClientNote" Role="ClientNote" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ClientNoteCategory">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ClientNote">
+              <PropertyRef Name="ClientNoteCategory_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_NoteTag_ClientNote">
+          <End Type="TrinityModel.ClientNote" Role="ClientNote" Multiplicity="0..1" />
+          <End Type="TrinityModel.ClientNoteTag" Role="ClientNoteTag" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ClientNote">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ClientNoteTag">
+              <PropertyRef Name="ClientNote_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="Contact">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Client_Id" Type="Int32" Nullable="false" />
+          <Property Name="Title_Id" Type="Int32" />
+          <Property Name="FirstName" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="MiddleName" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="LastName" Type="String" Nullable="false" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="JobTitle" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="PhoneNumber" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="MobileNumber" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="Email" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="ContactAddress_Id" Type="Int32" />
+          <Property Name="HomeAddress_Id" Type="Int32" />
+          <Property Name="Username" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="Password" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="PasswordHash" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <Property Name="PasswordFormat_Id" Type="Int32" Nullable="false" />
+          <Property Name="PasswordSalt" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="AdminComment" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="LoginActive" Type="Boolean" Nullable="false" />
+          <Property Name="FailedLoginCount" Type="Int32" Nullable="false" />
+          <Property Name="Deleted" Type="Boolean" Nullable="false" />
+          <Property Name="IsSystemAccount" Type="Boolean" Nullable="false" />
+          <Property Name="SystemName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="LastIpAddress" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="CreatedOn" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="LastLoginDate" Type="DateTime" Precision="3" />
+          <Property Name="Note" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Contact_Permission_Mapping" Relationship="TrinityModel.FK_Contact_Permission_Mapping_Contact" FromRole="Contact" ToRole="Contact_Permission_Mapping" />
+          <NavigationProperty Name="ContactCategories" Relationship="TrinityModel.Contact_ContactCategory_Mapping" FromRole="Contact" ToRole="ContactCategory" />
+          <NavigationProperty Name="FileTypes" Relationship="TrinityModel.Contact_FileType_Mapping" FromRole="Contact" ToRole="FileType" />
+          <NavigationProperty Name="Roles" Relationship="TrinityModel.Contact_Role_Mapping" FromRole="Contact" ToRole="Role" />
+          <NavigationProperty Name="Address" Relationship="TrinityModel.FK_Contact_Address" FromRole="Contact" ToRole="Address" />
+          <NavigationProperty Name="Address1" Relationship="TrinityModel.FK_Contact_Address1" FromRole="Contact" ToRole="Address" />
+          <NavigationProperty Name="Client" Relationship="TrinityModel.FK_Contact_Client" FromRole="Contact" ToRole="Client" />
+        </EntityType>
+        <Association Name="FK_Contact_Permission_Mapping_Contact">
+          <End Type="TrinityModel.Contact" Role="Contact" Multiplicity="1" />
+          <End Type="TrinityModel.Contact_Permission_Mapping" Role="Contact_Permission_Mapping" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Contact">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Contact_Permission_Mapping">
+              <PropertyRef Name="Contact_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Contact_ContactCategory_Mapping">
+          <End Type="TrinityModel.Contact" Role="Contact" Multiplicity="*" />
+          <End Type="TrinityModel.ContactCategory" Role="ContactCategory" Multiplicity="*" />
+        </Association>
+        <Association Name="Contact_FileType_Mapping">
+          <End Type="TrinityModel.Contact" Role="Contact" Multiplicity="*" />
+          <End Type="TrinityModel.FileType" Role="FileType" Multiplicity="*" />
+        </Association>
+        <Association Name="Contact_Role_Mapping">
+          <End Type="TrinityModel.Contact" Role="Contact" Multiplicity="*" />
+          <End Type="TrinityModel.Role" Role="Role" Multiplicity="*" />
+        </Association>
+        <EntityType Name="Title">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="Address">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="FirstName" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="LastName" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="Email" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="ClientName" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="Address1" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="Address2" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="City" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="County" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="PostalCode" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="CountryId" Type="Int32" />
+          <Property Name="PhoneNumber" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="FaxNumber" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="CreatedOn" Type="DateTime" Nullable="false" Precision="3" />
+          <NavigationProperty Name="Country" Relationship="TrinityModel.Address_Country" FromRole="Address" ToRole="Country" />
+          <NavigationProperty Name="Clients" Relationship="TrinityModel.FK_Client_Address" FromRole="Address" ToRole="Client" />
+          <NavigationProperty Name="Clients1" Relationship="TrinityModel.FK_Client_Address1" FromRole="Address" ToRole="Client" />
+          <NavigationProperty Name="Clients2" Relationship="TrinityModel.FK_Client_Address2" FromRole="Address" ToRole="Client" />
+          <NavigationProperty Name="Contacts" Relationship="TrinityModel.FK_Contact_Address" FromRole="Address" ToRole="Contact" />
+          <NavigationProperty Name="Contacts1" Relationship="TrinityModel.FK_Contact_Address1" FromRole="Address" ToRole="Contact" />
+        </EntityType>
+        <EntityType Name="Client">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ClientName" Type="String" Nullable="false" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="WebSite" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="Email" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="IsTaxExempt" Type="Boolean" Nullable="false" />
+          <Property Name="Active" Type="Boolean" Nullable="false" />
+          <Property Name="ClientAddress_Id" Type="Int32" />
+          <Property Name="BillingAddress_Id" Type="Int32" />
+          <Property Name="ShippingAddress_Id" Type="Int32" />
+          <Property Name="PhoneNumber" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="FinanceLink" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="PaymentTerms" Type="Int32" />
+          <Property Name="ClientCode" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="CreatedOn" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Deleted" Type="Boolean" Nullable="false" />
+          <Property Name="DeletedOn" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="Address" Relationship="TrinityModel.FK_Client_Address" FromRole="Client" ToRole="Address" />
+          <NavigationProperty Name="Address1" Relationship="TrinityModel.FK_Client_Address1" FromRole="Client" ToRole="Address" />
+          <NavigationProperty Name="Address2" Relationship="TrinityModel.FK_Client_Address2" FromRole="Client" ToRole="Address" />
+          <NavigationProperty Name="ClientAttributeValues" Relationship="TrinityModel.FK_ClientAttributeValue_Client" FromRole="Client" ToRole="ClientAttributeValue" />
+          <NavigationProperty Name="ClientFees" Relationship="TrinityModel.FK_ClientFee_Client" FromRole="Client" ToRole="ClientFee" />
+          <NavigationProperty Name="ClientNotes" Relationship="TrinityModel.FK_ClientNote_Client" FromRole="Client" ToRole="ClientNote" />
+          <NavigationProperty Name="Contacts" Relationship="TrinityModel.FK_Contact_Client" FromRole="Client" ToRole="Contact" />
+          <NavigationProperty Name="Contracts" Relationship="TrinityModel.FK_Contract_Client" FromRole="Client" ToRole="Contract" />
+          <NavigationProperty Name="DdSchemes" Relationship="TrinityModel.FK_DdScheme_Client" FromRole="Client" ToRole="DdScheme" />
+          <NavigationProperty Name="ClientCategories" Relationship="TrinityModel.Client_ClientCategory_Mapping" FromRole="Client" ToRole="ClientCategory" />
+        </EntityType>
+        <EntityType Name="Client_Address_Mapping">
+          <Key>
+            <PropertyRef Name="Client_Id" />
+            <PropertyRef Name="Address_Id" />
+          </Key>
+          <Property Name="Client_Id" Type="Int32" Nullable="false" />
+          <Property Name="Address_Id" Type="Int32" Nullable="false" />
+        </EntityType>
+        <Association Name="Address_Country">
+          <End Type="TrinityModel.Country" Role="Country" Multiplicity="0..1" />
+          <End Type="TrinityModel.Address" Role="Address" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Country">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Address">
+              <PropertyRef Name="CountryId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Client_Address">
+          <End Type="TrinityModel.Address" Role="Address" Multiplicity="0..1" />
+          <End Type="TrinityModel.Client" Role="Client" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Address">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Client">
+              <PropertyRef Name="ClientAddress_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Client_Address1">
+          <End Type="TrinityModel.Address" Role="Address" Multiplicity="0..1" />
+          <End Type="TrinityModel.Client" Role="Client" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Address">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Client">
+              <PropertyRef Name="BillingAddress_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Client_Address2">
+          <End Type="TrinityModel.Address" Role="Address" Multiplicity="0..1" />
+          <End Type="TrinityModel.Client" Role="Client" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Address">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Client">
+              <PropertyRef Name="ShippingAddress_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Contact_Address">
+          <End Type="TrinityModel.Address" Role="Address" Multiplicity="0..1" />
+          <End Type="TrinityModel.Contact" Role="Contact" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Address">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Contact">
+              <PropertyRef Name="ContactAddress_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Contact_Address1">
+          <End Type="TrinityModel.Address" Role="Address" Multiplicity="0..1" />
+          <End Type="TrinityModel.Contact" Role="Contact" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Address">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Contact">
+              <PropertyRef Name="HomeAddress_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ClientAttributeValue_Client">
+          <End Type="TrinityModel.Client" Role="Client" Multiplicity="1" />
+          <End Type="TrinityModel.ClientAttributeValue" Role="ClientAttributeValue" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Client">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ClientAttributeValue">
+              <PropertyRef Name="Client_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ClientFee_Client">
+          <End Type="TrinityModel.Client" Role="Client" Multiplicity="1" />
+          <End Type="TrinityModel.ClientFee" Role="ClientFee" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Client">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ClientFee">
+              <PropertyRef Name="Client_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ClientNote_Client">
+          <End Type="TrinityModel.Client" Role="Client" Multiplicity="1" />
+          <End Type="TrinityModel.ClientNote" Role="ClientNote" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Client">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ClientNote">
+              <PropertyRef Name="Client_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Contact_Client">
+          <End Type="TrinityModel.Client" Role="Client" Multiplicity="1" />
+          <End Type="TrinityModel.Contact" Role="Contact" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Client">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Contact">
+              <PropertyRef Name="Client_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Contract_Client">
+          <End Type="TrinityModel.Client" Role="Client" Multiplicity="1" />
+          <End Type="TrinityModel.Contract" Role="Contract" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Client">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Contract">
+              <PropertyRef Name="Client_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_DdScheme_Client">
+          <End Type="TrinityModel.Client" Role="Client" Multiplicity="1" />
+          <End Type="TrinityModel.DdScheme" Role="DdScheme" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Client">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="DdScheme">
+              <PropertyRef Name="Client_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Client_ClientCategory_Mapping">
+          <End Type="TrinityModel.Client" Role="Client" Multiplicity="*" />
+          <End Type="TrinityModel.ClientCategory" Role="ClientCategory" Multiplicity="*" />
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="TrinityModelStoreContainer" CdmEntityContainer="TrinityEntities">
+          <EntitySetMapping Name="ClientAttributes">
+            <EntityTypeMapping TypeName="TrinityModel.ClientAttribute">
+              <MappingFragment StoreEntitySet="ClientAttribute">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="IsRequired" ColumnName="IsRequired" />
+                <ScalarProperty Name="AttributeControlTypeId" ColumnName="AttributeControlTypeId" />
+                <ScalarProperty Name="DisplayOrder" ColumnName="DisplayOrder" />
+                <ScalarProperty Name="AdminOnly" ColumnName="AdminOnly" />
+                <ScalarProperty Name="AttributeOptions" ColumnName="AttributeOptions" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ClientAttributeValues">
+            <EntityTypeMapping TypeName="TrinityModel.ClientAttributeValue">
+              <MappingFragment StoreEntitySet="ClientAttributeValue">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Client_Id" ColumnName="Client_Id" />
+                <ScalarProperty Name="ClientAttribute_Id" ColumnName="ClientAttribute_Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ClientCategories">
+            <EntityTypeMapping TypeName="TrinityModel.ClientCategory">
+              <MappingFragment StoreEntitySet="ClientCategory">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ClientFees">
+            <EntityTypeMapping TypeName="TrinityModel.ClientFee">
+              <MappingFragment StoreEntitySet="ClientFee">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="FeeType_Id" ColumnName="FeeType_Id" />
+                <ScalarProperty Name="Client_Id" ColumnName="Client_Id" />
+                <ScalarProperty Name="Scheme_Id" ColumnName="Scheme_Id" />
+                <ScalarProperty Name="FeeExclVAT" ColumnName="FeeExclVAT" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ClientNoteCategories">
+            <EntityTypeMapping TypeName="TrinityModel.ClientNoteCategory">
+              <MappingFragment StoreEntitySet="ClientNoteCategory">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ClientNoteTags">
+            <EntityTypeMapping TypeName="TrinityModel.ClientNoteTag">
+              <MappingFragment StoreEntitySet="ClientNoteTag">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="ClientNote_Id" ColumnName="ClientNote_Id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Contact_Permission_Mapping">
+            <EntityTypeMapping TypeName="TrinityModel.Contact_Permission_Mapping">
+              <MappingFragment StoreEntitySet="Contact_Permission_Mapping">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Contact_Id" ColumnName="Contact_Id" />
+                <ScalarProperty Name="Scheme_Id" ColumnName="Scheme_Id" />
+                <ScalarProperty Name="Permission_Id" ColumnName="Permission_Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ContactCategories">
+            <EntityTypeMapping TypeName="TrinityModel.ContactCategory">
+              <MappingFragment StoreEntitySet="ContactCategory">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Contracts">
+            <EntityTypeMapping TypeName="TrinityModel.Contract">
+              <MappingFragment StoreEntitySet="Contract">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Client_Id" ColumnName="Client_Id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="ContractType_Id" ColumnName="ContractType_Id" />
+                <ScalarProperty Name="BillingAddress_Id" ColumnName="BillingAddress_Id" />
+                <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="Recurs" ColumnName="Recurs" />
+                <ScalarProperty Name="RecurrenceFrequency" ColumnName="RecurrenceFrequency" />
+                <ScalarProperty Name="StartDate" ColumnName="StartDate" />
+                <ScalarProperty Name="EndDate" ColumnName="EndDate" />
+                <ScalarProperty Name="ActualEndDate" ColumnName="ActualEndDate" />
+                <ScalarProperty Name="ContractValue" ColumnName="ContractValue" />
+                <ScalarProperty Name="Closed" ColumnName="Closed" />
+                <ScalarProperty Name="ClosedDate" ColumnName="ClosedDate" />
+                <ScalarProperty Name="Notes" ColumnName="Notes" />
+                <ScalarProperty Name="DailyRate" ColumnName="DailyRate" />
+                <ScalarProperty Name="RenewalID" ColumnName="RenewalID" />
+                <ScalarProperty Name="Autobill" ColumnName="Autobill" />
+                <ScalarProperty Name="Origstartdate" ColumnName="Origstartdate" />
+                <ScalarProperty Name="AutoBillFrequency" ColumnName="AutoBillFrequency" />
+                <ScalarProperty Name="NextAutoBill" ColumnName="NextAutoBill" />
+                <ScalarProperty Name="ContractHistory" ColumnName="ContractHistory" />
+                <ScalarProperty Name="DefaultContract" ColumnName="DefaultContract" />
+                <ScalarProperty Name="DirectDebit" ColumnName="DirectDebit" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Countries">
+            <EntityTypeMapping TypeName="TrinityModel.Country">
+              <MappingFragment StoreEntitySet="Country">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="DdInstructions">
+            <EntityTypeMapping TypeName="TrinityModel.DdInstruction">
+              <MappingFragment StoreEntitySet="DdInstruction">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Scheme_Id" ColumnName="Scheme_Id" />
+                <ScalarProperty Name="DdReference" ColumnName="DdReference" />
+                <ScalarProperty Name="DdiActive" ColumnName="DdiActive" />
+                <ScalarProperty Name="AccountName" ColumnName="AccountName" />
+                <ScalarProperty Name="AccountNumber" ColumnName="AccountNumber" />
+                <ScalarProperty Name="SortCode" ColumnName="SortCode" />
+                <ScalarProperty Name="ScheduleType_Id" ColumnName="ScheduleType_Id" />
+                <ScalarProperty Name="FirstPaymentAmount" ColumnName="FirstPaymentAmount" />
+                <ScalarProperty Name="FirstPaymentDate" ColumnName="FirstPaymentDate" />
+                <ScalarProperty Name="ScheduledPaymentAmount" ColumnName="ScheduledPaymentAmount" />
+                <ScalarProperty Name="ScheduledPaymentDate" ColumnName="ScheduledPaymentDate" />
+                <ScalarProperty Name="ScheduledPaymentCount" ColumnName="ScheduledPaymentCount" />
+                <ScalarProperty Name="LastPaymentAmount" ColumnName="LastPaymentAmount" />
+                <ScalarProperty Name="LastPaymentDate" ColumnName="LastPaymentDate" />
+                <ScalarProperty Name="Frequency" ColumnName="Frequency" />
+                <ScalarProperty Name="FrequencyInterval" ColumnName="FrequencyInterval" />
+                <ScalarProperty Name="DayOfWeek" ColumnName="DayOfWeek" />
+                <ScalarProperty Name="NewInstructionRequired" ColumnName="NewInstructionRequired" />
+                <ScalarProperty Name="NewInstructionInPlace" ColumnName="NewInstructionInPlace" />
+                <ScalarProperty Name="CancelDate" ColumnName="CancelDate" />
+                <ScalarProperty Name="CancelNote" ColumnName="CancelNote" />
+                <ScalarProperty Name="CancelCode" ColumnName="CancelCode" />
+                <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="ModifiedOn" ColumnName="ModifiedOn" />
+                <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+                <ScalarProperty Name="FileAuditID" ColumnName="FileAuditID" />
+                <ScalarProperty Name="SignUpType" ColumnName="SignUpType" />
+                <ScalarProperty Name="AmendCode" ColumnName="AmendCode" />
+                <ScalarProperty Name="UnpaidSeqCount" ColumnName="UnpaidSeqCount" />
+                <ScalarProperty Name="AmendedOn" ColumnName="AmendedOn" />
+                <ScalarProperty Name="AmendReportFlag" ColumnName="AmendReportFlag" />
+                <ScalarProperty Name="ProductID" ColumnName="ProductID" />
+                <ScalarProperty Name="DdiTagID" ColumnName="DdiTagID" />
+                <ScalarProperty Name="DdiTimestamp" ColumnName="DdiTimestamp" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+                <ScalarProperty Name="MiddleName" ColumnName="MiddleName" />
+                <ScalarProperty Name="LastName" ColumnName="LastName" />
+                <ScalarProperty Name="JobTitle" ColumnName="JobTitle" />
+                <ScalarProperty Name="PhoneNumber" ColumnName="PhoneNumber" />
+                <ScalarProperty Name="MobileNumber" ColumnName="MobileNumber" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="ContactAddress_Id" ColumnName="ContactAddress_Id" />
+                <ScalarProperty Name="AlternateAddress_Id" ColumnName="AlternateAddress_Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="DdInstructionAttributes">
+            <EntityTypeMapping TypeName="TrinityModel.DdInstructionAttribute">
+              <MappingFragment StoreEntitySet="DdInstructionAttribute">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="IsRequired" ColumnName="IsRequired" />
+                <ScalarProperty Name="AttributeControlType_Id" ColumnName="AttributeControlType_Id" />
+                <ScalarProperty Name="DisplayOrder" ColumnName="DisplayOrder" />
+                <ScalarProperty Name="AdminOnly" ColumnName="AdminOnly" />
+                <ScalarProperty Name="AttributeOptions" ColumnName="AttributeOptions" />
+                <ScalarProperty Name="AllSchemes" ColumnName="AllSchemes" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="DdInstructionAttributeValues">
+            <EntityTypeMapping TypeName="TrinityModel.DdInstructionAttributeValue">
+              <MappingFragment StoreEntitySet="DdInstructionAttributeValue">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="DdInstruction_Id" ColumnName="DdInstruction_Id" />
+                <ScalarProperty Name="DdInstructionAttribute_Id" ColumnName="DdInstructionAttribute_Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="DdInstructionNotes">
+            <EntityTypeMapping TypeName="TrinityModel.DdInstructionNote">
+              <MappingFragment StoreEntitySet="DdInstructionNote">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="DdInstruction_Id" ColumnName="DdInstruction_Id" />
+                <ScalarProperty Name="DdInstructionNoteCategory_Id" ColumnName="DdInstructionNoteCategory_Id" />
+                <ScalarProperty Name="NoteContent" ColumnName="NoteContent" />
+                <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="DdInstructionNoteCategories">
+            <EntityTypeMapping TypeName="TrinityModel.DdInstructionNoteCategory">
+              <MappingFragment StoreEntitySet="DdInstructionNoteCategory">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="DdNewSignUpControls">
+            <EntityTypeMapping TypeName="TrinityModel.DdNewSignUpControl">
+              <MappingFragment StoreEntitySet="DdNewSignUpControls">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="ControlId" ColumnName="ControlId" />
+                <ScalarProperty Name="ScriptDefault" ColumnName="ScriptDefault" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="DdSchemes">
+            <EntityTypeMapping TypeName="TrinityModel.DdScheme">
+              <MappingFragment StoreEntitySet="DdScheme">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="SUN" ColumnName="SUN" />
+                <ScalarProperty Name="Client_Id" ColumnName="Client_Id" />
+                <ScalarProperty Name="ManagedByClient_Id" ColumnName="ManagedByClient_Id" />
+                <ScalarProperty Name="BillingAddress_Id" ColumnName="BillingAddress_Id" />
+                <ScalarProperty Name="SchemeType_Id" ColumnName="SchemeType_Id" />
+                <ScalarProperty Name="SchemeCode" ColumnName="SchemeCode" />
+                <ScalarProperty Name="RemittersName" ColumnName="RemittersName" />
+                <ScalarProperty Name="AccountName" ColumnName="AccountName" />
+                <ScalarProperty Name="SortCode" ColumnName="SortCode" />
+                <ScalarProperty Name="AccountNumber" ColumnName="AccountNumber" />
+                <ScalarProperty Name="WebOnly" ColumnName="WebOnly" />
+                <ScalarProperty Name="WebScheme_Id" ColumnName="WebScheme_Id" />
+                <ScalarProperty Name="SendBacsNewInstruction" ColumnName="SendBacsNewInstruction" />
+                <ScalarProperty Name="NewInstructionNoticeInDays" ColumnName="NewInstructionNoticeInDays" />
+                <ScalarProperty Name="SendBacsCancellation" ColumnName="SendBacsCancellation" />
+                <ScalarProperty Name="BacsCancellationWaitInDays" ColumnName="BacsCancellationWaitInDays" />
+                <ScalarProperty Name="DdRefMustBeUnique" ColumnName="DdRefMustBeUnique" />
+                <ScalarProperty Name="ScheduleLastExtended" ColumnName="ScheduleLastExtended" />
+                <ScalarProperty Name="Represent" ColumnName="Represent" />
+                <ScalarProperty Name="RepresentOffset" ColumnName="RepresentOffset" />
+                <ScalarProperty Name="RepresentSchedule" ColumnName="RepresentSchedule" />
+                <ScalarProperty Name="SchemeLocked" ColumnName="SchemeLocked" />
+                <ScalarProperty Name="SchemeLockedOn" ColumnName="SchemeLockedOn" />
+                <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="ModifiedOn" ColumnName="ModifiedOn" />
+                <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+                <ScalarProperty Name="Active" ColumnName="Active" />
+                <ScalarProperty Name="Deleted" ColumnName="Deleted" />
+                <ScalarProperty Name="DeletedOn" ColumnName="DeletedOn" />
+                <ScalarProperty Name="HasLetterGeneration" ColumnName="HasLetterGeneration" />
+                <ScalarProperty Name="CommunicateByFTP" ColumnName="CommunicateByFTP" />
+                <ScalarProperty Name="RestrictPaymentDates" ColumnName="RestrictPaymentDates" />
+                <ScalarProperty Name="AllowedPaymentDates" ColumnName="AllowedPaymentDates" />
+                <ScalarProperty Name="KeepFTPHistoryInMonths" ColumnName="KeepFTPHistoryInMonths" />
+                <ScalarProperty Name="ProductConfig" ColumnName="ProductConfig" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="DdSchemeTypes">
+            <EntityTypeMapping TypeName="TrinityModel.DdSchemeType">
+              <MappingFragment StoreEntitySet="DdSchemeType">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="FeeTypes">
+            <EntityTypeMapping TypeName="TrinityModel.FeeType">
+              <MappingFragment StoreEntitySet="FeeType">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="DefaultFeeExclVAT" ColumnName="DefaultFeeExclVAT" />
+                <ScalarProperty Name="DisplayOrder" ColumnName="DisplayOrder" />
+                <ScalarProperty Name="Category" ColumnName="Category" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="FileTypes">
+            <EntityTypeMapping TypeName="TrinityModel.FileType">
+              <MappingFragment StoreEntitySet="FileType">
+                <ScalarProperty Name="FileTypeId" ColumnName="FileTypeId" />
+                <ScalarProperty Name="FileType1" ColumnName="FileType" />
+                <ScalarProperty Name="FileTypeNote" ColumnName="FileTypeNote" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Permissions">
+            <EntityTypeMapping TypeName="TrinityModel.Permission">
+              <MappingFragment StoreEntitySet="Permission">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Permission1" ColumnName="Permission" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PermissionGrps">
+            <EntityTypeMapping TypeName="TrinityModel.PermissionGrp">
+              <MappingFragment StoreEntitySet="PermissionGrp">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="PermissionGroup" ColumnName="PermissionGroup" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="sysdiagrams">
+            <EntityTypeMapping TypeName="TrinityModel.sysdiagram">
+              <MappingFragment StoreEntitySet="sysdiagrams">
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="definition" ColumnName="definition" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <AssociationSetMapping Name="PermissionGrp_Permission_Mapping" TypeName="TrinityModel.PermissionGrp_Permission_Mapping" StoreEntitySet="PermissionGrp_Permission_Mapping">
+            <EndProperty Name="Permission">
+              <ScalarProperty Name="Id" ColumnName="Permission_Id" />
+            </EndProperty>
+            <EndProperty Name="PermissionGrp">
+              <ScalarProperty Name="Id" ColumnName="PermissionGrp_Id" />
+            </EndProperty>
+          </AssociationSetMapping>
+          <AssociationSetMapping Name="Scheme_DdInstructionAttribute_Mapping" TypeName="TrinityModel.Scheme_DdInstructionAttribute_Mapping" StoreEntitySet="Scheme_DdInstructionAttribute_Mapping">
+            <EndProperty Name="DdInstructionAttribute">
+              <ScalarProperty Name="Id" ColumnName="DdInstructionAttribute_Id" />
+            </EndProperty>
+            <EndProperty Name="DdScheme">
+              <ScalarProperty Name="Id" ColumnName="DdScheme_Id" />
+            </EndProperty>
+          </AssociationSetMapping>
+          <EntitySetMapping Name="Settings">
+            <EntityTypeMapping TypeName="TrinityModel.Setting">
+              <MappingFragment StoreEntitySet="Setting">
+                <ScalarProperty Name="Scheme_Id" ColumnName="Scheme_Id" />
+                <ScalarProperty Name="Client_Id" ColumnName="Client_Id" />
+                <ScalarProperty Name="Value" ColumnName="Value" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Roles">
+            <EntityTypeMapping TypeName="TrinityModel.Role">
+              <MappingFragment StoreEntitySet="Role">
+                <ScalarProperty Name="Role1" ColumnName="Role" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ApplicationSettings">
+            <EntityTypeMapping TypeName="TrinityModel.ApplicationSetting">
+              <MappingFragment StoreEntitySet="ApplicationSetting">
+                <ScalarProperty Name="Value" ColumnName="Value" />
+                <ScalarProperty Name="ApplicationSettingName" ColumnName="ApplicationSettingName" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ClientNotes">
+            <EntityTypeMapping TypeName="TrinityModel.ClientNote">
+              <MappingFragment StoreEntitySet="ClientNote">
+                <ScalarProperty Name="Obsolete" ColumnName="Obsolete" />
+                <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+                <ScalarProperty Name="ModifiedOn" ColumnName="ModifiedOn" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+                <ScalarProperty Name="NoteContent" ColumnName="NoteContent" />
+                <ScalarProperty Name="NoteTitle" ColumnName="NoteTitle" />
+                <ScalarProperty Name="ClientNoteCategory_Id" ColumnName="ClientNoteCategory_Id" />
+                <ScalarProperty Name="Client_Id" ColumnName="Client_Id" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Contacts">
+            <EntityTypeMapping TypeName="TrinityModel.Contact">
+              <MappingFragment StoreEntitySet="Contact">
+                <ScalarProperty Name="Note" ColumnName="Note" />
+                <ScalarProperty Name="LastLoginDate" ColumnName="LastLoginDate" />
+                <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+                <ScalarProperty Name="LastIpAddress" ColumnName="LastIpAddress" />
+                <ScalarProperty Name="SystemName" ColumnName="SystemName" />
+                <ScalarProperty Name="IsSystemAccount" ColumnName="IsSystemAccount" />
+                <ScalarProperty Name="Deleted" ColumnName="Deleted" />
+                <ScalarProperty Name="FailedLoginCount" ColumnName="FailedLoginCount" />
+                <ScalarProperty Name="LoginActive" ColumnName="LoginActive" />
+                <ScalarProperty Name="AdminComment" ColumnName="AdminComment" />
+                <ScalarProperty Name="PasswordSalt" ColumnName="PasswordSalt" />
+                <ScalarProperty Name="PasswordFormat_Id" ColumnName="PasswordFormat_Id" />
+                <ScalarProperty Name="PasswordHash" ColumnName="PasswordHash" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="Username" ColumnName="Username" />
+                <ScalarProperty Name="HomeAddress_Id" ColumnName="HomeAddress_Id" />
+                <ScalarProperty Name="ContactAddress_Id" ColumnName="ContactAddress_Id" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="MobileNumber" ColumnName="MobileNumber" />
+                <ScalarProperty Name="PhoneNumber" ColumnName="PhoneNumber" />
+                <ScalarProperty Name="JobTitle" ColumnName="JobTitle" />
+                <ScalarProperty Name="LastName" ColumnName="LastName" />
+                <ScalarProperty Name="MiddleName" ColumnName="MiddleName" />
+                <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+                <ScalarProperty Name="Title_Id" ColumnName="Title_Id" />
+                <ScalarProperty Name="Client_Id" ColumnName="Client_Id" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <AssociationSetMapping Name="Contact_ContactCategory_Mapping" TypeName="TrinityModel.Contact_ContactCategory_Mapping" StoreEntitySet="Contact_ContactCategory_Mapping">
+            <EndProperty Name="ContactCategory">
+              <ScalarProperty Name="Id" ColumnName="ContactCategory_Id" />
+            </EndProperty>
+            <EndProperty Name="Contact">
+              <ScalarProperty Name="Id" ColumnName="Contact_Id" />
+            </EndProperty>
+          </AssociationSetMapping>
+          <AssociationSetMapping Name="Contact_FileType_Mapping" TypeName="TrinityModel.Contact_FileType_Mapping" StoreEntitySet="Contact_FileType_Mapping">
+            <EndProperty Name="FileType">
+              <ScalarProperty Name="FileTypeId" ColumnName="FileType_Id" />
+            </EndProperty>
+            <EndProperty Name="Contact">
+              <ScalarProperty Name="Id" ColumnName="Contact_Id" />
+            </EndProperty>
+          </AssociationSetMapping>
+          <AssociationSetMapping Name="Contact_Role_Mapping" TypeName="TrinityModel.Contact_Role_Mapping" StoreEntitySet="Contact_Role_Mapping">
+            <EndProperty Name="Role">
+              <ScalarProperty Name="Id" ColumnName="RoleId" />
+            </EndProperty>
+            <EndProperty Name="Contact">
+              <ScalarProperty Name="Id" ColumnName="ContactId" />
+            </EndProperty>
+          </AssociationSetMapping>
+          <EntitySetMapping Name="Titles">
+            <EntityTypeMapping TypeName="TrinityModel.Title">
+              <MappingFragment StoreEntitySet="Title">
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Addresses">
+            <EntityTypeMapping TypeName="TrinityModel.Address">
+              <MappingFragment StoreEntitySet="Address">
+                <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+                <ScalarProperty Name="FaxNumber" ColumnName="FaxNumber" />
+                <ScalarProperty Name="PhoneNumber" ColumnName="PhoneNumber" />
+                <ScalarProperty Name="CountryId" ColumnName="CountryId" />
+                <ScalarProperty Name="PostalCode" ColumnName="PostalCode" />
+                <ScalarProperty Name="County" ColumnName="County" />
+                <ScalarProperty Name="City" ColumnName="City" />
+                <ScalarProperty Name="Address2" ColumnName="Address2" />
+                <ScalarProperty Name="Address1" ColumnName="Address1" />
+                <ScalarProperty Name="ClientName" ColumnName="ClientName" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="LastName" ColumnName="LastName" />
+                <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Clients">
+            <EntityTypeMapping TypeName="TrinityModel.Client">
+              <MappingFragment StoreEntitySet="Client">
+                <ScalarProperty Name="DeletedOn" ColumnName="DeletedOn" />
+                <ScalarProperty Name="Deleted" ColumnName="Deleted" />
+                <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+                <ScalarProperty Name="ClientCode" ColumnName="ClientCode" />
+                <ScalarProperty Name="PaymentTerms" ColumnName="PaymentTerms" />
+                <ScalarProperty Name="FinanceLink" ColumnName="FinanceLink" />
+                <ScalarProperty Name="PhoneNumber" ColumnName="PhoneNumber" />
+                <ScalarProperty Name="ShippingAddress_Id" ColumnName="ShippingAddress_Id" />
+                <ScalarProperty Name="BillingAddress_Id" ColumnName="BillingAddress_Id" />
+                <ScalarProperty Name="ClientAddress_Id" ColumnName="ClientAddress_Id" />
+                <ScalarProperty Name="Active" ColumnName="Active" />
+                <ScalarProperty Name="IsTaxExempt" ColumnName="IsTaxExempt" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="WebSite" ColumnName="WebSite" />
+                <ScalarProperty Name="ClientName" ColumnName="ClientName" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Client_Address_Mapping">
+            <EntityTypeMapping TypeName="TrinityModel.Client_Address_Mapping">
+              <MappingFragment StoreEntitySet="Client_Address_Mapping">
+                <ScalarProperty Name="Address_Id" ColumnName="Address_Id" />
+                <ScalarProperty Name="Client_Id" ColumnName="Client_Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <AssociationSetMapping Name="Client_ClientCategory_Mapping" TypeName="TrinityModel.Client_ClientCategory_Mapping" StoreEntitySet="Client_ClientCategory_Mapping">
+            <EndProperty Name="ClientCategory">
+              <ScalarProperty Name="Id" ColumnName="ClientCategory_Id" />
+            </EndProperty>
+            <EndProperty Name="Client">
+              <ScalarProperty Name="Id" ColumnName="Client_Id" />
+            </EndProperty>
+          </AssociationSetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

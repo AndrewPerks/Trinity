@@ -1,0 +1,21 @@
+﻿<Window x:Class="Trinity.Views.InactivityPeriod"
+        x:Name="InactivityWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:helpers="clr-namespace:Trinity.Helpers"
+        Title="Change Inactivity Period" Height="181" Width="300"
+        helpers:ViewModelLocator.AutoWireViewModel="True" ResizeMode="NoResize" Topmost="True">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+        <Grid>
+            <TextBlock HorizontalAlignment="Center" Margin="10,10,0,0" TextWrapping="Wrap" Text="Change the amount of time before a user is automatically logged out due to inactivity" VerticalAlignment="Top"/>
+            <TextBox HorizontalAlignment="Left" Height="23" Margin="145,60,0,0" TextWrapping="Wrap" Text="{Binding AmountOfHours, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True, NotifyOnValidationError=True}" VerticalAlignment="Top" Width="56"/>
+            <Label Content="Hours" HorizontalAlignment="Left" Margin="98,57,0,0" VerticalAlignment="Top"/>
+
+            <Button Command="{Binding SaveCommand}" IsDefault="True" Content="Save" Margin="98,112,121,80"/>
+            <Button Command="{Binding CancelCommand}" CommandParameter="{Binding ElementName=InactivityWindow}" Content="Cancel" Margin="192,112,27,80"/>
+        </Grid>
+    </Grid>
+</Window>

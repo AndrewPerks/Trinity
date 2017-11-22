@@ -1,0 +1,509 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="TrinityModelStoreContainer" CdmEntityContainer="TrinityEntities">
+    <EntitySetMapping Name="ClientAttributes">
+      <EntityTypeMapping TypeName="TrinityModel.ClientAttribute">
+        <MappingFragment StoreEntitySet="ClientAttribute">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="IsRequired" ColumnName="IsRequired" />
+          <ScalarProperty Name="AttributeControlTypeId" ColumnName="AttributeControlTypeId" />
+          <ScalarProperty Name="DisplayOrder" ColumnName="DisplayOrder" />
+          <ScalarProperty Name="AdminOnly" ColumnName="AdminOnly" />
+          <ScalarProperty Name="AttributeOptions" ColumnName="AttributeOptions" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ClientAttributeValues">
+      <EntityTypeMapping TypeName="TrinityModel.ClientAttributeValue">
+        <MappingFragment StoreEntitySet="ClientAttributeValue">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Client_Id" ColumnName="Client_Id" />
+          <ScalarProperty Name="ClientAttribute_Id" ColumnName="ClientAttribute_Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ClientCategories">
+      <EntityTypeMapping TypeName="TrinityModel.ClientCategory">
+        <MappingFragment StoreEntitySet="ClientCategory">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ClientFees">
+      <EntityTypeMapping TypeName="TrinityModel.ClientFee">
+        <MappingFragment StoreEntitySet="ClientFee">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="FeeType_Id" ColumnName="FeeType_Id" />
+          <ScalarProperty Name="Client_Id" ColumnName="Client_Id" />
+          <ScalarProperty Name="Scheme_Id" ColumnName="Scheme_Id" />
+          <ScalarProperty Name="FeeExclVAT" ColumnName="FeeExclVAT" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ClientNoteCategories">
+      <EntityTypeMapping TypeName="TrinityModel.ClientNoteCategory">
+        <MappingFragment StoreEntitySet="ClientNoteCategory">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ClientNoteTags">
+      <EntityTypeMapping TypeName="TrinityModel.ClientNoteTag">
+        <MappingFragment StoreEntitySet="ClientNoteTag">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="ClientNote_Id" ColumnName="ClientNote_Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Contact_Permission_Mapping">
+      <EntityTypeMapping TypeName="TrinityModel.Contact_Permission_Mapping">
+        <MappingFragment StoreEntitySet="Contact_Permission_Mapping">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Contact_Id" ColumnName="Contact_Id" />
+          <ScalarProperty Name="Scheme_Id" ColumnName="Scheme_Id" />
+          <ScalarProperty Name="Permission_Id" ColumnName="Permission_Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ContactCategories">
+      <EntityTypeMapping TypeName="TrinityModel.ContactCategory">
+        <MappingFragment StoreEntitySet="ContactCategory">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Contracts">
+      <EntityTypeMapping TypeName="TrinityModel.Contract">
+        <MappingFragment StoreEntitySet="Contract">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Client_Id" ColumnName="Client_Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="ContractType_Id" ColumnName="ContractType_Id" />
+          <ScalarProperty Name="BillingAddress_Id" ColumnName="BillingAddress_Id" />
+          <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="Recurs" ColumnName="Recurs" />
+          <ScalarProperty Name="RecurrenceFrequency" ColumnName="RecurrenceFrequency" />
+          <ScalarProperty Name="StartDate" ColumnName="StartDate" />
+          <ScalarProperty Name="EndDate" ColumnName="EndDate" />
+          <ScalarProperty Name="ActualEndDate" ColumnName="ActualEndDate" />
+          <ScalarProperty Name="ContractValue" ColumnName="ContractValue" />
+          <ScalarProperty Name="Closed" ColumnName="Closed" />
+          <ScalarProperty Name="ClosedDate" ColumnName="ClosedDate" />
+          <ScalarProperty Name="Notes" ColumnName="Notes" />
+          <ScalarProperty Name="DailyRate" ColumnName="DailyRate" />
+          <ScalarProperty Name="RenewalID" ColumnName="RenewalID" />
+          <ScalarProperty Name="Autobill" ColumnName="Autobill" />
+          <ScalarProperty Name="Origstartdate" ColumnName="Origstartdate" />
+          <ScalarProperty Name="AutoBillFrequency" ColumnName="AutoBillFrequency" />
+          <ScalarProperty Name="NextAutoBill" ColumnName="NextAutoBill" />
+          <ScalarProperty Name="ContractHistory" ColumnName="ContractHistory" />
+          <ScalarProperty Name="DefaultContract" ColumnName="DefaultContract" />
+          <ScalarProperty Name="DirectDebit" ColumnName="DirectDebit" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Countries">
+      <EntityTypeMapping TypeName="TrinityModel.Country">
+        <MappingFragment StoreEntitySet="Country">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DdInstructions">
+      <EntityTypeMapping TypeName="TrinityModel.DdInstruction">
+        <MappingFragment StoreEntitySet="DdInstruction">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Scheme_Id" ColumnName="Scheme_Id" />
+          <ScalarProperty Name="DdReference" ColumnName="DdReference" />
+          <ScalarProperty Name="DdiActive" ColumnName="DdiActive" />
+          <ScalarProperty Name="AccountName" ColumnName="AccountName" />
+          <ScalarProperty Name="AccountNumber" ColumnName="AccountNumber" />
+          <ScalarProperty Name="SortCode" ColumnName="SortCode" />
+          <ScalarProperty Name="ScheduleType_Id" ColumnName="ScheduleType_Id" />
+          <ScalarProperty Name="FirstPaymentAmount" ColumnName="FirstPaymentAmount" />
+          <ScalarProperty Name="FirstPaymentDate" ColumnName="FirstPaymentDate" />
+          <ScalarProperty Name="ScheduledPaymentAmount" ColumnName="ScheduledPaymentAmount" />
+          <ScalarProperty Name="ScheduledPaymentDate" ColumnName="ScheduledPaymentDate" />
+          <ScalarProperty Name="ScheduledPaymentCount" ColumnName="ScheduledPaymentCount" />
+          <ScalarProperty Name="LastPaymentAmount" ColumnName="LastPaymentAmount" />
+          <ScalarProperty Name="LastPaymentDate" ColumnName="LastPaymentDate" />
+          <ScalarProperty Name="Frequency" ColumnName="Frequency" />
+          <ScalarProperty Name="FrequencyInterval" ColumnName="FrequencyInterval" />
+          <ScalarProperty Name="DayOfWeek" ColumnName="DayOfWeek" />
+          <ScalarProperty Name="NewInstructionRequired" ColumnName="NewInstructionRequired" />
+          <ScalarProperty Name="NewInstructionInPlace" ColumnName="NewInstructionInPlace" />
+          <ScalarProperty Name="CancelDate" ColumnName="CancelDate" />
+          <ScalarProperty Name="CancelNote" ColumnName="CancelNote" />
+          <ScalarProperty Name="CancelCode" ColumnName="CancelCode" />
+          <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="ModifiedOn" ColumnName="ModifiedOn" />
+          <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+          <ScalarProperty Name="FileAuditID" ColumnName="FileAuditID" />
+          <ScalarProperty Name="SignUpType" ColumnName="SignUpType" />
+          <ScalarProperty Name="AmendCode" ColumnName="AmendCode" />
+          <ScalarProperty Name="UnpaidSeqCount" ColumnName="UnpaidSeqCount" />
+          <ScalarProperty Name="AmendedOn" ColumnName="AmendedOn" />
+          <ScalarProperty Name="AmendReportFlag" ColumnName="AmendReportFlag" />
+          <ScalarProperty Name="ProductID" ColumnName="ProductID" />
+          <ScalarProperty Name="DdiTagID" ColumnName="DdiTagID" />
+          <ScalarProperty Name="DdiTimestamp" ColumnName="DdiTimestamp" />
+          <ScalarProperty Name="Title" ColumnName="Title" />
+          <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+          <ScalarProperty Name="MiddleName" ColumnName="MiddleName" />
+          <ScalarProperty Name="LastName" ColumnName="LastName" />
+          <ScalarProperty Name="JobTitle" ColumnName="JobTitle" />
+          <ScalarProperty Name="PhoneNumber" ColumnName="PhoneNumber" />
+          <ScalarProperty Name="MobileNumber" ColumnName="MobileNumber" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="ContactAddress_Id" ColumnName="ContactAddress_Id" />
+          <ScalarProperty Name="AlternateAddress_Id" ColumnName="AlternateAddress_Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DdInstructionAttributes">
+      <EntityTypeMapping TypeName="TrinityModel.DdInstructionAttribute">
+        <MappingFragment StoreEntitySet="DdInstructionAttribute">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="IsRequired" ColumnName="IsRequired" />
+          <ScalarProperty Name="AttributeControlType_Id" ColumnName="AttributeControlType_Id" />
+          <ScalarProperty Name="DisplayOrder" ColumnName="DisplayOrder" />
+          <ScalarProperty Name="AdminOnly" ColumnName="AdminOnly" />
+          <ScalarProperty Name="AttributeOptions" ColumnName="AttributeOptions" />
+          <ScalarProperty Name="AllSchemes" ColumnName="AllSchemes" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DdInstructionAttributeValues">
+      <EntityTypeMapping TypeName="TrinityModel.DdInstructionAttributeValue">
+        <MappingFragment StoreEntitySet="DdInstructionAttributeValue">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="DdInstruction_Id" ColumnName="DdInstruction_Id" />
+          <ScalarProperty Name="DdInstructionAttribute_Id" ColumnName="DdInstructionAttribute_Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DdInstructionNotes">
+      <EntityTypeMapping TypeName="TrinityModel.DdInstructionNote">
+        <MappingFragment StoreEntitySet="DdInstructionNote">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="DdInstruction_Id" ColumnName="DdInstruction_Id" />
+          <ScalarProperty Name="DdInstructionNoteCategory_Id" ColumnName="DdInstructionNoteCategory_Id" />
+          <ScalarProperty Name="NoteContent" ColumnName="NoteContent" />
+          <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DdInstructionNoteCategories">
+      <EntityTypeMapping TypeName="TrinityModel.DdInstructionNoteCategory">
+        <MappingFragment StoreEntitySet="DdInstructionNoteCategory">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DdNewSignUpControls">
+      <EntityTypeMapping TypeName="TrinityModel.DdNewSignUpControl">
+        <MappingFragment StoreEntitySet="DdNewSignUpControls">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="ControlId" ColumnName="ControlId" />
+          <ScalarProperty Name="ScriptDefault" ColumnName="ScriptDefault" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DdSchemes">
+      <EntityTypeMapping TypeName="TrinityModel.DdScheme">
+        <MappingFragment StoreEntitySet="DdScheme">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="SUN" ColumnName="SUN" />
+          <ScalarProperty Name="Client_Id" ColumnName="Client_Id" />
+          <ScalarProperty Name="ManagedByClient_Id" ColumnName="ManagedByClient_Id" />
+          <ScalarProperty Name="BillingAddress_Id" ColumnName="BillingAddress_Id" />
+          <ScalarProperty Name="SchemeType_Id" ColumnName="SchemeType_Id" />
+          <ScalarProperty Name="SchemeCode" ColumnName="SchemeCode" />
+          <ScalarProperty Name="RemittersName" ColumnName="RemittersName" />
+          <ScalarProperty Name="AccountName" ColumnName="AccountName" />
+          <ScalarProperty Name="SortCode" ColumnName="SortCode" />
+          <ScalarProperty Name="AccountNumber" ColumnName="AccountNumber" />
+          <ScalarProperty Name="WebOnly" ColumnName="WebOnly" />
+          <ScalarProperty Name="WebScheme_Id" ColumnName="WebScheme_Id" />
+          <ScalarProperty Name="SendBacsNewInstruction" ColumnName="SendBacsNewInstruction" />
+          <ScalarProperty Name="NewInstructionNoticeInDays" ColumnName="NewInstructionNoticeInDays" />
+          <ScalarProperty Name="SendBacsCancellation" ColumnName="SendBacsCancellation" />
+          <ScalarProperty Name="BacsCancellationWaitInDays" ColumnName="BacsCancellationWaitInDays" />
+          <ScalarProperty Name="DdRefMustBeUnique" ColumnName="DdRefMustBeUnique" />
+          <ScalarProperty Name="ScheduleLastExtended" ColumnName="ScheduleLastExtended" />
+          <ScalarProperty Name="Represent" ColumnName="Represent" />
+          <ScalarProperty Name="RepresentOffset" ColumnName="RepresentOffset" />
+          <ScalarProperty Name="RepresentSchedule" ColumnName="RepresentSchedule" />
+          <ScalarProperty Name="SchemeLocked" ColumnName="SchemeLocked" />
+          <ScalarProperty Name="SchemeLockedOn" ColumnName="SchemeLockedOn" />
+          <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="ModifiedOn" ColumnName="ModifiedOn" />
+          <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+          <ScalarProperty Name="Active" ColumnName="Active" />
+          <ScalarProperty Name="Deleted" ColumnName="Deleted" />
+          <ScalarProperty Name="DeletedOn" ColumnName="DeletedOn" />
+          <ScalarProperty Name="HasLetterGeneration" ColumnName="HasLetterGeneration" />
+          <ScalarProperty Name="CommunicateByFTP" ColumnName="CommunicateByFTP" />
+          <ScalarProperty Name="RestrictPaymentDates" ColumnName="RestrictPaymentDates" />
+          <ScalarProperty Name="AllowedPaymentDates" ColumnName="AllowedPaymentDates" />
+          <ScalarProperty Name="KeepFTPHistoryInMonths" ColumnName="KeepFTPHistoryInMonths" />
+          <ScalarProperty Name="ProductConfig" ColumnName="ProductConfig" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DdSchemeTypes">
+      <EntityTypeMapping TypeName="TrinityModel.DdSchemeType">
+        <MappingFragment StoreEntitySet="DdSchemeType">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="FeeTypes">
+      <EntityTypeMapping TypeName="TrinityModel.FeeType">
+        <MappingFragment StoreEntitySet="FeeType">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="DefaultFeeExclVAT" ColumnName="DefaultFeeExclVAT" />
+          <ScalarProperty Name="DisplayOrder" ColumnName="DisplayOrder" />
+          <ScalarProperty Name="Category" ColumnName="Category" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="FileTypes">
+      <EntityTypeMapping TypeName="TrinityModel.FileType">
+        <MappingFragment StoreEntitySet="FileType">
+          <ScalarProperty Name="FileTypeId" ColumnName="FileTypeId" />
+          <ScalarProperty Name="FileType1" ColumnName="FileType" />
+          <ScalarProperty Name="FileTypeNote" ColumnName="FileTypeNote" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Permissions">
+      <EntityTypeMapping TypeName="TrinityModel.Permission">
+        <MappingFragment StoreEntitySet="Permission">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Permission1" ColumnName="Permission" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PermissionGrps">
+      <EntityTypeMapping TypeName="TrinityModel.PermissionGrp">
+        <MappingFragment StoreEntitySet="PermissionGrp">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="PermissionGroup" ColumnName="PermissionGroup" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="sysdiagrams">
+      <EntityTypeMapping TypeName="TrinityModel.sysdiagram">
+        <MappingFragment StoreEntitySet="sysdiagrams">
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+          <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+          <ScalarProperty Name="version" ColumnName="version" />
+          <ScalarProperty Name="definition" ColumnName="definition" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <AssociationSetMapping Name="PermissionGrp_Permission_Mapping" TypeName="TrinityModel.PermissionGrp_Permission_Mapping" StoreEntitySet="PermissionGrp_Permission_Mapping">
+      <EndProperty Name="Permission">
+        <ScalarProperty Name="Id" ColumnName="Permission_Id" />
+      </EndProperty>
+      <EndProperty Name="PermissionGrp">
+        <ScalarProperty Name="Id" ColumnName="PermissionGrp_Id" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="Scheme_DdInstructionAttribute_Mapping" TypeName="TrinityModel.Scheme_DdInstructionAttribute_Mapping" StoreEntitySet="Scheme_DdInstructionAttribute_Mapping">
+      <EndProperty Name="DdInstructionAttribute">
+        <ScalarProperty Name="Id" ColumnName="DdInstructionAttribute_Id" />
+      </EndProperty>
+      <EndProperty Name="DdScheme">
+        <ScalarProperty Name="Id" ColumnName="DdScheme_Id" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <EntitySetMapping Name="Settings">
+      <EntityTypeMapping TypeName="TrinityModel.Setting">
+        <MappingFragment StoreEntitySet="Setting">
+          <ScalarProperty Name="Scheme_Id" ColumnName="Scheme_Id" />
+          <ScalarProperty Name="Client_Id" ColumnName="Client_Id" />
+          <ScalarProperty Name="Value" ColumnName="Value" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Roles">
+      <EntityTypeMapping TypeName="TrinityModel.Role">
+        <MappingFragment StoreEntitySet="Role">
+          <ScalarProperty Name="Role1" ColumnName="Role" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ApplicationSettings">
+      <EntityTypeMapping TypeName="TrinityModel.ApplicationSetting">
+        <MappingFragment StoreEntitySet="ApplicationSetting">
+          <ScalarProperty Name="Value" ColumnName="Value" />
+          <ScalarProperty Name="ApplicationSettingName" ColumnName="ApplicationSettingName" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ClientNotes">
+      <EntityTypeMapping TypeName="TrinityModel.ClientNote">
+        <MappingFragment StoreEntitySet="ClientNote">
+          <ScalarProperty Name="Obsolete" ColumnName="Obsolete" />
+          <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+          <ScalarProperty Name="ModifiedOn" ColumnName="ModifiedOn" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+          <ScalarProperty Name="NoteContent" ColumnName="NoteContent" />
+          <ScalarProperty Name="NoteTitle" ColumnName="NoteTitle" />
+          <ScalarProperty Name="ClientNoteCategory_Id" ColumnName="ClientNoteCategory_Id" />
+          <ScalarProperty Name="Client_Id" ColumnName="Client_Id" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Contacts">
+      <EntityTypeMapping TypeName="TrinityModel.Contact">
+        <MappingFragment StoreEntitySet="Contact">
+          <ScalarProperty Name="Note" ColumnName="Note" />
+          <ScalarProperty Name="LastLoginDate" ColumnName="LastLoginDate" />
+          <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+          <ScalarProperty Name="LastIpAddress" ColumnName="LastIpAddress" />
+          <ScalarProperty Name="SystemName" ColumnName="SystemName" />
+          <ScalarProperty Name="IsSystemAccount" ColumnName="IsSystemAccount" />
+          <ScalarProperty Name="Deleted" ColumnName="Deleted" />
+          <ScalarProperty Name="FailedLoginCount" ColumnName="FailedLoginCount" />
+          <ScalarProperty Name="LoginActive" ColumnName="LoginActive" />
+          <ScalarProperty Name="AdminComment" ColumnName="AdminComment" />
+          <ScalarProperty Name="PasswordSalt" ColumnName="PasswordSalt" />
+          <ScalarProperty Name="PasswordFormat_Id" ColumnName="PasswordFormat_Id" />
+          <ScalarProperty Name="PasswordHash" ColumnName="PasswordHash" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="Username" ColumnName="Username" />
+          <ScalarProperty Name="HomeAddress_Id" ColumnName="HomeAddress_Id" />
+          <ScalarProperty Name="ContactAddress_Id" ColumnName="ContactAddress_Id" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="MobileNumber" ColumnName="MobileNumber" />
+          <ScalarProperty Name="PhoneNumber" ColumnName="PhoneNumber" />
+          <ScalarProperty Name="JobTitle" ColumnName="JobTitle" />
+          <ScalarProperty Name="LastName" ColumnName="LastName" />
+          <ScalarProperty Name="MiddleName" ColumnName="MiddleName" />
+          <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+          <ScalarProperty Name="Title_Id" ColumnName="Title_Id" />
+          <ScalarProperty Name="Client_Id" ColumnName="Client_Id" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <AssociationSetMapping Name="Contact_ContactCategory_Mapping" TypeName="TrinityModel.Contact_ContactCategory_Mapping" StoreEntitySet="Contact_ContactCategory_Mapping">
+      <EndProperty Name="ContactCategory">
+        <ScalarProperty Name="Id" ColumnName="ContactCategory_Id" />
+      </EndProperty>
+      <EndProperty Name="Contact">
+        <ScalarProperty Name="Id" ColumnName="Contact_Id" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="Contact_FileType_Mapping" TypeName="TrinityModel.Contact_FileType_Mapping" StoreEntitySet="Contact_FileType_Mapping">
+      <EndProperty Name="FileType">
+        <ScalarProperty Name="FileTypeId" ColumnName="FileType_Id" />
+      </EndProperty>
+      <EndProperty Name="Contact">
+        <ScalarProperty Name="Id" ColumnName="Contact_Id" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="Contact_Role_Mapping" TypeName="TrinityModel.Contact_Role_Mapping" StoreEntitySet="Contact_Role_Mapping">
+      <EndProperty Name="Role">
+        <ScalarProperty Name="Id" ColumnName="RoleId" />
+      </EndProperty>
+      <EndProperty Name="Contact">
+        <ScalarProperty Name="Id" ColumnName="ContactId" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <EntitySetMapping Name="Titles">
+      <EntityTypeMapping TypeName="TrinityModel.Title">
+        <MappingFragment StoreEntitySet="Title">
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Addresses">
+      <EntityTypeMapping TypeName="TrinityModel.Address">
+        <MappingFragment StoreEntitySet="Address">
+          <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+          <ScalarProperty Name="FaxNumber" ColumnName="FaxNumber" />
+          <ScalarProperty Name="PhoneNumber" ColumnName="PhoneNumber" />
+          <ScalarProperty Name="CountryId" ColumnName="CountryId" />
+          <ScalarProperty Name="PostalCode" ColumnName="PostalCode" />
+          <ScalarProperty Name="County" ColumnName="County" />
+          <ScalarProperty Name="City" ColumnName="City" />
+          <ScalarProperty Name="Address2" ColumnName="Address2" />
+          <ScalarProperty Name="Address1" ColumnName="Address1" />
+          <ScalarProperty Name="ClientName" ColumnName="ClientName" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="LastName" ColumnName="LastName" />
+          <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Clients">
+      <EntityTypeMapping TypeName="TrinityModel.Client">
+        <MappingFragment StoreEntitySet="Client">
+          <ScalarProperty Name="DeletedOn" ColumnName="DeletedOn" />
+          <ScalarProperty Name="Deleted" ColumnName="Deleted" />
+          <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+          <ScalarProperty Name="ClientCode" ColumnName="ClientCode" />
+          <ScalarProperty Name="PaymentTerms" ColumnName="PaymentTerms" />
+          <ScalarProperty Name="FinanceLink" ColumnName="FinanceLink" />
+          <ScalarProperty Name="PhoneNumber" ColumnName="PhoneNumber" />
+          <ScalarProperty Name="ShippingAddress_Id" ColumnName="ShippingAddress_Id" />
+          <ScalarProperty Name="BillingAddress_Id" ColumnName="BillingAddress_Id" />
+          <ScalarProperty Name="ClientAddress_Id" ColumnName="ClientAddress_Id" />
+          <ScalarProperty Name="Active" ColumnName="Active" />
+          <ScalarProperty Name="IsTaxExempt" ColumnName="IsTaxExempt" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="WebSite" ColumnName="WebSite" />
+          <ScalarProperty Name="ClientName" ColumnName="ClientName" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Client_Address_Mapping">
+      <EntityTypeMapping TypeName="TrinityModel.Client_Address_Mapping">
+        <MappingFragment StoreEntitySet="Client_Address_Mapping">
+          <ScalarProperty Name="Address_Id" ColumnName="Address_Id" />
+          <ScalarProperty Name="Client_Id" ColumnName="Client_Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <AssociationSetMapping Name="Client_ClientCategory_Mapping" TypeName="TrinityModel.Client_ClientCategory_Mapping" StoreEntitySet="Client_ClientCategory_Mapping">
+      <EndProperty Name="ClientCategory">
+        <ScalarProperty Name="Id" ColumnName="ClientCategory_Id" />
+      </EndProperty>
+      <EndProperty Name="Client">
+        <ScalarProperty Name="Id" ColumnName="Client_Id" />
+      </EndProperty>
+    </AssociationSetMapping>
+  </EntityContainerMapping>
+</Mapping>

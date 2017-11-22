@@ -1,0 +1,27 @@
+﻿<Window x:Class="Trinity.Views.Login"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:trinity="clr-namespace:Trinity"
+        xmlns:authentication="clr-namespace:Trinity.Authentication"
+        Title="Login" Height="204" Width="329" ResizeMode="NoResize" WindowStartupLocation="CenterScreen"
+        >
+    <Window.Resources>
+        <BooleanToVisibilityConverter x:Key="booleanToVisibilityConverter"/>
+    </Window.Resources>
+    <Grid HorizontalAlignment="Left" Width="594" Margin="0,0,-112,0" Height="271" VerticalAlignment="Top">
+        <TextBlock Text="Username:" Margin="29,22,475,221" />
+        <TextBlock Text="Password:" Margin="29,65,475,179" />
+        <TextBox Name="TxtUsername" Text="{Binding Username, ValidatesOnNotifyDataErrors=True, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Margin="124,22,305,226" Height="23" TextChanged="TxtUsername_TextChanged" />
+        <PasswordBox x:Name="passwordBox" authentication:PasswordBoxMvvmAttachedProperties.EncryptedPassword="{Binding PasswordSecureString, ValidatesOnNotifyDataErrors=True, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, ValidatesOnExceptions=True }" PasswordChanged="passwordBox_PasswordChanged" Margin="124,65,305,0" Height="23" VerticalAlignment="Top" />
+
+        <Button Content="Log out" Height="22" Command="{Binding LogoutCommand, Mode=OneTime}"
+            	Visibility="{Binding IsAuthenticated, Converter={StaticResource booleanToVisibilityConverter}}"
+            	Margin="124,108,395,141"/>
+        <Button Name="BtnLogin" Content="Log in" IsDefault="True" Height="22" Command="{Binding LoginCommand, Mode=OneTime}"
+            	CommandParameter="{Binding ElementName=passwordBox}" Margin="214,108,305,141"/>
+        <Border BorderThickness="0" BorderBrush="Red" CornerRadius="2" Margin="29,139,305,96">
+            <TextBlock Text="{Binding Status}" HorizontalAlignment="Center" TextWrapping="Wrap" Height="auto"  Foreground="Red"/>
+        </Border>
+
+    </Grid>
+</Window>

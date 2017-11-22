@@ -1,0 +1,39 @@
+﻿<Window x:Class="Trinity.Views.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:trinity="clr-namespace:Trinity"
+        xmlns:helpers="clr-namespace:Trinity.Helpers"        
+        Title="Trinity" Height="350" Width="525" WindowState="Maximized"
+        x:Name="MainWindowWindow"
+        helpers:ViewModelLocator.AutoWireViewModel="True">
+    <Window.InputBindings>
+        <KeyBinding Key="F2" Command="{Binding ContactsCommand}" />
+    </Window.InputBindings>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="137*"/>
+            <RowDefinition Height="183*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="100*"/>
+        </Grid.ColumnDefinitions>
+        <Menu VerticalAlignment="Top">
+            <MenuItem Header="File" Name="File">
+                <MenuItem Header="Log out" HorizontalAlignment="Left" Width="145" Command="{Binding LogoutCommand}" CommandParameter="{Binding ElementName=MainWindowWindow}" Name="Logout"/>
+                <Separator />
+                <MenuItem Header="Exit" HorizontalAlignment="Left" Width="145" Command="{Binding ExitCommand}" Name="Exit"/>
+            </MenuItem>
+            <MenuItem Header="User" Name="User">
+                <MenuItem Header="Change Password" HorizontalAlignment="Left" Command="{Binding ChangePasswordCommand}" Name="ChangePassword"/>
+            </MenuItem>
+            <MenuItem Header="All Forms" Name="AllFormsMenuItem">
+                <MenuItem Header="Contacts" InputGestureText="F2" Command="{Binding ContactsCommand}" Name="Contacts"/>
+            </MenuItem>
+            <MenuItem Header="Admin" Name="AdminMenuItem">
+                <MenuItem Header="User Management" HorizontalAlignment="Left" Command="{Binding UserCommand}" Name="UserManagement"/>
+                <MenuItem Header="Change Lockout Time" HorizontalAlignment="Left" Command="{Binding InactivityCommand}" Name="InactivityPeriod"/>
+            </MenuItem>
+        </Menu>
+
+    </Grid>
+</Window>

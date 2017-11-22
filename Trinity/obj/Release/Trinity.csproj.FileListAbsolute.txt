@@ -1,0 +1,83 @@
+D:\Data\Trinity\Trinity\bin\Release\Trinity.exe.config
+D:\Data\Trinity\Trinity\obj\Release\Trinity.csprojResolveAssemblyReference.cache
+D:\Data\Trinity\Trinity\obj\Release\Views\AddressInformation.baml
+D:\Data\Trinity\Trinity\obj\Release\Views\NoteInformation.baml
+D:\Data\Trinity\Trinity\obj\Release\Views\ContactInformation.baml
+D:\Data\Trinity\Trinity\obj\Release\Views\ClientInformation.baml
+D:\Data\Trinity\Trinity\obj\Release\Views\AddEditClient.g.cs
+D:\Data\Trinity\Trinity\obj\Release\Views\AddEditUser.g.cs
+D:\Data\Trinity\Trinity\obj\Release\Views\ChangeInactivityPeriod.g.cs
+D:\Data\Trinity\Trinity\obj\Release\Views\ChangePassword.g.cs
+D:\Data\Trinity\Trinity\obj\Release\Views\AddressInformation.g.cs
+D:\Data\Trinity\Trinity\obj\Release\Views\NoteInformation.g.cs
+D:\Data\Trinity\Trinity\obj\Release\Views\ContactInformation.g.cs
+D:\Data\Trinity\Trinity\obj\Release\Views\ClientInformation.g.cs
+D:\Data\Trinity\Trinity\obj\Release\Views\Clients.g.cs
+D:\Data\Trinity\Trinity\obj\Release\Views\Login.g.cs
+D:\Data\Trinity\Trinity\obj\Release\Views\MainWindow.g.cs
+D:\Data\Trinity\Trinity\obj\Release\Views\Users.g.cs
+D:\Data\Trinity\Trinity\obj\Release\App.g.cs
+D:\Data\Trinity\Trinity\obj\Release\GeneratedInternalTypeHelper.g.cs
+D:\Data\Trinity\Trinity\obj\Release\Trinity_MarkupCompile.cache
+D:\Data\Trinity\Trinity\obj\Release\Trinity_MarkupCompile.lref
+C:\Users\Andrew\Documents\Andrews Documents\University\Computer Science\Year 4\Individual Project (CM0645)\Project\Trinity\Trinity\bin\Release\Trinity.exe.config
+C:\Users\Andrew\Documents\Andrews Documents\University\Computer Science\Year 4\Individual Project (CM0645)\Project\Trinity\Trinity\bin\Release\Trinity.exe
+C:\Users\Andrew\Documents\Andrews Documents\University\Computer Science\Year 4\Individual Project (CM0645)\Project\Trinity\Trinity\bin\Release\Trinity.pdb
+C:\Users\Andrew\Documents\Andrews Documents\University\Computer Science\Year 4\Individual Project (CM0645)\Project\Trinity\Trinity\bin\Release\EntityFramework.dll
+C:\Users\Andrew\Documents\Andrews Documents\University\Computer Science\Year 4\Individual Project (CM0645)\Project\Trinity\Trinity\bin\Release\EntityFramework.SqlServer.dll
+C:\Users\Andrew\Documents\Andrews Documents\University\Computer Science\Year 4\Individual Project (CM0645)\Project\Trinity\Trinity\bin\Release\Microsoft.Practices.ServiceLocation.dll
+C:\Users\Andrew\Documents\Andrews Documents\University\Computer Science\Year 4\Individual Project (CM0645)\Project\Trinity\Trinity\bin\Release\Microsoft.Practices.Unity.Configuration.dll
+C:\Users\Andrew\Documents\Andrews Documents\University\Computer Science\Year 4\Individual Project (CM0645)\Project\Trinity\Trinity\bin\Release\Microsoft.Practices.Unity.dll
+C:\Users\Andrew\Documents\Andrews Documents\University\Computer Science\Year 4\Individual Project (CM0645)\Project\Trinity\Trinity\bin\Release\Microsoft.Practices.Unity.RegistrationByConvention.dll
+C:\Users\Andrew\Documents\Andrews Documents\University\Computer Science\Year 4\Individual Project (CM0645)\Project\Trinity\Trinity\bin\Release\Trinity.DataAccess.dll
+C:\Users\Andrew\Documents\Andrews Documents\University\Computer Science\Year 4\Individual Project (CM0645)\Project\Trinity\Trinity\bin\Release\Trinity.Model.dll
+C:\Users\Andrew\Documents\Andrews Documents\University\Computer Science\Year 4\Individual Project (CM0645)\Project\Trinity\Trinity\bin\Release\Trinity.Services.dll
+C:\Users\Andrew\Documents\Andrews Documents\University\Computer Science\Year 4\Individual Project (CM0645)\Project\Trinity\Trinity\bin\Release\Trinity.DataAccess.pdb
+C:\Users\Andrew\Documents\Andrews Documents\University\Computer Science\Year 4\Individual Project (CM0645)\Project\Trinity\Trinity\bin\Release\Trinity.Model.pdb
+C:\Users\Andrew\Documents\Andrews Documents\University\Computer Science\Year 4\Individual Project (CM0645)\Project\Trinity\Trinity\bin\Release\Trinity.Model.dll.config
+C:\Users\Andrew\Documents\Andrews Documents\University\Computer Science\Year 4\Individual Project (CM0645)\Project\Trinity\Trinity\bin\Release\Trinity.Services.pdb
+C:\Users\Andrew\Documents\Andrews Documents\University\Computer Science\Year 4\Individual Project (CM0645)\Project\Trinity\Trinity\bin\Release\Trinity.Services.dll.config
+C:\Users\Andrew\Documents\Andrews Documents\University\Computer Science\Year 4\Individual Project (CM0645)\Project\Trinity\Trinity\bin\Release\EntityFramework.xml
+C:\Users\Andrew\Documents\Andrews Documents\University\Computer Science\Year 4\Individual Project (CM0645)\Project\Trinity\Trinity\bin\Release\EntityFramework.SqlServer.xml
+C:\Users\Andrew\Documents\Andrews Documents\University\Computer Science\Year 4\Individual Project (CM0645)\Project\Trinity\Trinity\bin\Release\Microsoft.Practices.ServiceLocation.pdb
+C:\Users\Andrew\Documents\Andrews Documents\University\Computer Science\Year 4\Individual Project (CM0645)\Project\Trinity\Trinity\bin\Release\Microsoft.Practices.ServiceLocation.xml
+C:\Users\Andrew\Documents\Andrews Documents\University\Computer Science\Year 4\Individual Project (CM0645)\Project\Trinity\Trinity\bin\Release\Microsoft.Practices.Unity.xml
+C:\Users\Andrew\Documents\Andrews Documents\University\Computer Science\Year 4\Individual Project (CM0645)\Project\Trinity\Trinity\bin\Release\Microsoft.Practices.Unity.Configuration.xml
+C:\Users\Andrew\Documents\Andrews Documents\University\Computer Science\Year 4\Individual Project (CM0645)\Project\Trinity\Trinity\bin\Release\Microsoft.Practices.Unity.RegistrationByConvention.xml
+C:\Users\Andrew\Documents\Andrews Documents\University\Computer Science\Year 4\Individual Project (CM0645)\Project\Trinity\Trinity\obj\Release\Trinity.csprojResolveAssemblyReference.cache
+C:\Users\Andrew\Documents\Andrews Documents\University\Computer Science\Year 4\Individual Project (CM0645)\Project\Trinity\Trinity\obj\Release\Views\AddressInformation.baml
+C:\Users\Andrew\Documents\Andrews Documents\University\Computer Science\Year 4\Individual Project (CM0645)\Project\Trinity\Trinity\obj\Release\Views\ContactInformation.baml
+C:\Users\Andrew\Documents\Andrews Documents\University\Computer Science\Year 4\Individual Project (CM0645)\Project\Trinity\Trinity\obj\Release\Views\ClientInformation.baml
+C:\Users\Andrew\Documents\Andrews Documents\University\Computer Science\Year 4\Individual Project (CM0645)\Project\Trinity\Trinity\obj\Release\Views\AddContact.g.cs
+C:\Users\Andrew\Documents\Andrews Documents\University\Computer Science\Year 4\Individual Project (CM0645)\Project\Trinity\Trinity\obj\Release\Views\AddEditClient.g.cs
+C:\Users\Andrew\Documents\Andrews Documents\University\Computer Science\Year 4\Individual Project (CM0645)\Project\Trinity\Trinity\obj\Release\Views\AddEditUser.g.cs
+C:\Users\Andrew\Documents\Andrews Documents\University\Computer Science\Year 4\Individual Project (CM0645)\Project\Trinity\Trinity\obj\Release\Views\InactivityPeriod.g.cs
+C:\Users\Andrew\Documents\Andrews Documents\University\Computer Science\Year 4\Individual Project (CM0645)\Project\Trinity\Trinity\obj\Release\Views\ChangePassword.g.cs
+C:\Users\Andrew\Documents\Andrews Documents\University\Computer Science\Year 4\Individual Project (CM0645)\Project\Trinity\Trinity\obj\Release\Views\AddressInformation.g.cs
+C:\Users\Andrew\Documents\Andrews Documents\University\Computer Science\Year 4\Individual Project (CM0645)\Project\Trinity\Trinity\obj\Release\Views\NoteInformation.g.cs
+C:\Users\Andrew\Documents\Andrews Documents\University\Computer Science\Year 4\Individual Project (CM0645)\Project\Trinity\Trinity\obj\Release\Views\ContactInformation.g.cs
+C:\Users\Andrew\Documents\Andrews Documents\University\Computer Science\Year 4\Individual Project (CM0645)\Project\Trinity\Trinity\obj\Release\Views\ClientInformation.g.cs
+C:\Users\Andrew\Documents\Andrews Documents\University\Computer Science\Year 4\Individual Project (CM0645)\Project\Trinity\Trinity\obj\Release\Views\Clients.g.cs
+C:\Users\Andrew\Documents\Andrews Documents\University\Computer Science\Year 4\Individual Project (CM0645)\Project\Trinity\Trinity\obj\Release\Views\Login.g.cs
+C:\Users\Andrew\Documents\Andrews Documents\University\Computer Science\Year 4\Individual Project (CM0645)\Project\Trinity\Trinity\obj\Release\Views\MainWindow.g.cs
+C:\Users\Andrew\Documents\Andrews Documents\University\Computer Science\Year 4\Individual Project (CM0645)\Project\Trinity\Trinity\obj\Release\Views\Users.g.cs
+C:\Users\Andrew\Documents\Andrews Documents\University\Computer Science\Year 4\Individual Project (CM0645)\Project\Trinity\Trinity\obj\Release\App.g.cs
+C:\Users\Andrew\Documents\Andrews Documents\University\Computer Science\Year 4\Individual Project (CM0645)\Project\Trinity\Trinity\obj\Release\GeneratedInternalTypeHelper.g.cs
+C:\Users\Andrew\Documents\Andrews Documents\University\Computer Science\Year 4\Individual Project (CM0645)\Project\Trinity\Trinity\obj\Release\Trinity_MarkupCompile.cache
+C:\Users\Andrew\Documents\Andrews Documents\University\Computer Science\Year 4\Individual Project (CM0645)\Project\Trinity\Trinity\obj\Release\Trinity_MarkupCompile.lref
+C:\Users\Andrew\Documents\Andrews Documents\University\Computer Science\Year 4\Individual Project (CM0645)\Project\Trinity\Trinity\obj\Release\Views\AddContact.baml
+C:\Users\Andrew\Documents\Andrews Documents\University\Computer Science\Year 4\Individual Project (CM0645)\Project\Trinity\Trinity\obj\Release\Views\AddEditClient.baml
+C:\Users\Andrew\Documents\Andrews Documents\University\Computer Science\Year 4\Individual Project (CM0645)\Project\Trinity\Trinity\obj\Release\Views\AddEditUser.baml
+C:\Users\Andrew\Documents\Andrews Documents\University\Computer Science\Year 4\Individual Project (CM0645)\Project\Trinity\Trinity\obj\Release\Views\InactivityPeriod.baml
+C:\Users\Andrew\Documents\Andrews Documents\University\Computer Science\Year 4\Individual Project (CM0645)\Project\Trinity\Trinity\obj\Release\Views\ChangePassword.baml
+C:\Users\Andrew\Documents\Andrews Documents\University\Computer Science\Year 4\Individual Project (CM0645)\Project\Trinity\Trinity\obj\Release\Views\NoteInformation.baml
+C:\Users\Andrew\Documents\Andrews Documents\University\Computer Science\Year 4\Individual Project (CM0645)\Project\Trinity\Trinity\obj\Release\Views\Clients.baml
+C:\Users\Andrew\Documents\Andrews Documents\University\Computer Science\Year 4\Individual Project (CM0645)\Project\Trinity\Trinity\obj\Release\Views\Login.baml
+C:\Users\Andrew\Documents\Andrews Documents\University\Computer Science\Year 4\Individual Project (CM0645)\Project\Trinity\Trinity\obj\Release\Views\MainWindow.baml
+C:\Users\Andrew\Documents\Andrews Documents\University\Computer Science\Year 4\Individual Project (CM0645)\Project\Trinity\Trinity\obj\Release\Views\Users.baml
+C:\Users\Andrew\Documents\Andrews Documents\University\Computer Science\Year 4\Individual Project (CM0645)\Project\Trinity\Trinity\obj\Release\Trinity.g.resources
+C:\Users\Andrew\Documents\Andrews Documents\University\Computer Science\Year 4\Individual Project (CM0645)\Project\Trinity\Trinity\obj\Release\Trinity.Properties.Resources.resources
+C:\Users\Andrew\Documents\Andrews Documents\University\Computer Science\Year 4\Individual Project (CM0645)\Project\Trinity\Trinity\obj\Release\Trinity.csproj.GenerateResource.Cache
+C:\Users\Andrew\Documents\Andrews Documents\University\Computer Science\Year 4\Individual Project (CM0645)\Project\Trinity\Trinity\obj\Release\Trinity.csproj.CoreCompileInputs.cache
+C:\Users\Andrew\Documents\Andrews Documents\University\Computer Science\Year 4\Individual Project (CM0645)\Project\Trinity\Trinity\obj\Release\Trinity.exe
+C:\Users\Andrew\Documents\Andrews Documents\University\Computer Science\Year 4\Individual Project (CM0645)\Project\Trinity\Trinity\obj\Release\Trinity.pdb

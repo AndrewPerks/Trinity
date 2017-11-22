@@ -1,0 +1,31 @@
+﻿<Window x:Class="Trinity.Views.Users"
+        x:Name="UsersWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:helpers="clr-namespace:Trinity.Helpers"
+        Title="User Management" Height="339.682" Width="516.789"
+        helpers:ViewModelLocator.AutoWireViewModel="True" ResizeMode="NoResize" Topmost="True">
+    <Grid>
+        <GroupBox Header="Users (Select to Edit)" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top">
+            <DataGrid HorizontalAlignment="Left" Margin="10,10,10,10" IsReadOnly="True" VerticalAlignment="Top" Height="245" Width="350" Name="GrdUsers" ItemsSource="{Binding Users}" SelectedItem="{Binding SelectedUser}" AutoGenerateColumns="False" AlternationCount="2" AlternatingRowBackground="WhiteSmoke">
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="ID" Binding="{Binding Id}" Width="Auto"/>
+                    <DataGridTextColumn Header="First Name" Binding="{Binding FirstName}" Width="*"/>
+                    <DataGridTextColumn Header="Last Name" Binding="{Binding LastName}" Width="*"/>
+                    <DataGridTextColumn Header="Username" Binding="{Binding Username}" Width="*"/>
+                </DataGrid.Columns>
+                <DataGrid.InputBindings>
+                    <MouseBinding
+                    MouseAction="LeftDoubleClick"
+                    Command="{Binding EditCommand}"                    
+                    CommandParameter="{Binding SelectedUser}"/>
+                </DataGrid.InputBindings>
+            </DataGrid>
+        </GroupBox>
+        <Button x:Name="btnAdd" Content="Add" Command="{Binding AddCommand}" HorizontalAlignment="Left" Margin="415,20,0,0" VerticalAlignment="Top" Width="75"/>
+        <Button x:Name="btnEdit" Content="Edit" Command="{Binding EditCommand}" HorizontalAlignment="Left" Margin="415,60,0,0" VerticalAlignment="Top" Width="75"/>
+        <Button x:Name="btnDelete" Content="Delete" Command="{Binding DeleteCommand}" HorizontalAlignment="Left" Margin="415,100,0,0" VerticalAlignment="Top" Width="75"/>
+        <Button x:Name="btnClose" Content="Close" Command="{Binding CloseCommand}" CommandParameter="{Binding ElementName=UsersWindow}" HorizontalAlignment="Left" Margin="415,180,0,0" VerticalAlignment="Top" Width="75"/>
+
+    </Grid>
+</Window>

@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="e6f2058f933f4546890f8601fe20271a" Name="Diagram1" ZoomLevel="81">
+        <EntityTypeShape EntityType="TrinityModel.ClientAttribute" Width="1.5" PointX="5.25" PointY="26.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="TrinityModel.ClientAttributeValue" Width="1.5" PointX="7.5" PointY="23.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="TrinityModel.ClientCategory" Width="1.5" PointX="7.5" PointY="20.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="TrinityModel.ClientFee" Width="1.5" PointX="10.5" PointY="20.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="TrinityModel.ClientNoteCategory" Width="1.5" PointX="5.25" PointY="15.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="TrinityModel.ClientNoteTag" Width="1.5" PointX="9.75" PointY="23.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="TrinityModel.Contact_Permission_Mapping" Width="1.5" PointX="18.75" PointY="18" IsExpanded="true" />
+        <EntityTypeShape EntityType="TrinityModel.ContactCategory" Width="1.5" PointX="12.75" PointY="13.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="TrinityModel.Contract" Width="1.5" PointX="7.5" PointY="37.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="TrinityModel.Country" Width="1.5" PointX="0.75" PointY="20.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="TrinityModel.DdInstruction" Width="1.5" PointX="15.75" PointY="16.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="TrinityModel.DdInstructionAttribute" Width="1.5" PointX="11.25" PointY="27" IsExpanded="true" />
+        <EntityTypeShape EntityType="TrinityModel.DdInstructionAttributeValue" Width="1.5" PointX="18" PointY="21.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="TrinityModel.DdInstructionNote" Width="1.5" PointX="21" PointY="20.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="TrinityModel.DdInstructionNoteCategory" Width="1.5" PointX="18.75" PointY="24.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="TrinityModel.DdNewSignUpControl" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="TrinityModel.DdScheme" Width="1.5" PointX="13.5" PointY="17" IsExpanded="true" />
+        <EntityTypeShape EntityType="TrinityModel.DdSchemeType" Width="1.5" PointX="11.25" PointY="30.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="TrinityModel.FeeType" Width="1.5" PointX="8.25" PointY="26.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="TrinityModel.FileType" Width="1.5" PointX="12.75" PointY="11" IsExpanded="true" />
+        <EntityTypeShape EntityType="TrinityModel.Permission" Width="1.5" PointX="16.5" PointY="13.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="TrinityModel.PermissionGrp" Width="1.5" PointX="18.75" PointY="13.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="TrinityModel.sysdiagram" Width="1.5" PointX="0.75" PointY="3.75" IsExpanded="true" />
+        <AssociationConnector Association="TrinityModel.FK_ClientAttributeValue_ClientAttribute" ManuallyRouted="false" />
+        <AssociationConnector Association="TrinityModel.FK_ClientFee_FeeType" ManuallyRouted="false" />
+        <AssociationConnector Association="TrinityModel.FK_Contact_Permission_Mapping_DdScheme" ManuallyRouted="false" />
+        <AssociationConnector Association="TrinityModel.FK_Contact_Permission_Mapping_Permission" ManuallyRouted="false" />
+        <AssociationConnector Association="TrinityModel.FK_DdInstruction_DdScheme" ManuallyRouted="false" />
+        <AssociationConnector Association="TrinityModel.FK_DdInstructionAttributeValue_DdInstruction" ManuallyRouted="false" />
+        <AssociationConnector Association="TrinityModel.FK_DdInstructionNote_DdInstruction" ManuallyRouted="false" />
+        <AssociationConnector Association="TrinityModel.FK_DdInstructionAttributeValue_DdInstructionAttribute" ManuallyRouted="false" />
+        <AssociationConnector Association="TrinityModel.FK_DdInstructionNote_DdInstructionNoteCategory" ManuallyRouted="false" />
+        <AssociationConnector Association="TrinityModel.FK_DdScheme_DdSchemeType" ManuallyRouted="false" />
+        <AssociationConnector Association="TrinityModel.PermissionGrp_Permission_Mapping" ManuallyRouted="false" />
+        <AssociationConnector Association="TrinityModel.Scheme_DdInstructionAttribute_Mapping" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="TrinityModel.Setting" Width="1.5" PointX="3.375" PointY="0.75" />
+        <EntityTypeShape EntityType="TrinityModel.Role" Width="1.5" PointX="12.75" PointY="8" />
+        <EntityTypeShape EntityType="TrinityModel.ApplicationSetting" Width="1.5" PointX="3.375" PointY="3.75" />
+        <EntityTypeShape EntityType="TrinityModel.ClientNote" Width="1.5" PointX="7.5" PointY="15.5" />
+        <AssociationConnector Association="TrinityModel.FK_ClientNote_NoteCategory" />
+        <AssociationConnector Association="TrinityModel.FK_NoteTag_ClientNote" />
+        <EntityTypeShape EntityType="TrinityModel.Contact" Width="1.5" PointX="10.5" PointY="11.875" />
+        <AssociationConnector Association="TrinityModel.FK_Contact_Permission_Mapping_Contact" />
+        <AssociationConnector Association="TrinityModel.Contact_ContactCategory_Mapping" />
+        <AssociationConnector Association="TrinityModel.Contact_FileType_Mapping" />
+        <AssociationConnector Association="TrinityModel.Contact_Role_Mapping" />
+        <EntityTypeShape EntityType="TrinityModel.Title" Width="1.5" PointX="5.375" PointY="0.75" />
+        <EntityTypeShape EntityType="TrinityModel.Address" Width="1.5" PointX="3" PointY="19.25" />
+        <EntityTypeShape EntityType="TrinityModel.Client" Width="1.5" PointX="5.25" PointY="18.625" />
+        <EntityTypeShape EntityType="TrinityModel.Client_Address_Mapping" Width="1.5" PointX="5.375" PointY="3.75" />
+        <AssociationConnector Association="TrinityModel.Address_Country" />
+        <AssociationConnector Association="TrinityModel.FK_Client_Address" />
+        <AssociationConnector Association="TrinityModel.FK_Client_Address1" />
+        <AssociationConnector Association="TrinityModel.FK_Client_Address2" />
+        <AssociationConnector Association="TrinityModel.FK_Contact_Address" />
+        <AssociationConnector Association="TrinityModel.FK_Contact_Address1" />
+        <AssociationConnector Association="TrinityModel.FK_ClientAttributeValue_Client" />
+        <AssociationConnector Association="TrinityModel.FK_ClientFee_Client" />
+        <AssociationConnector Association="TrinityModel.FK_ClientNote_Client" />
+        <AssociationConnector Association="TrinityModel.FK_Contact_Client" />
+        <AssociationConnector Association="TrinityModel.FK_Contract_Client" />
+        <AssociationConnector Association="TrinityModel.FK_DdScheme_Client" />
+        <AssociationConnector Association="TrinityModel.Client_ClientCategory_Mapping" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

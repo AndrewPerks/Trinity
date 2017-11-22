@@ -1,0 +1,221 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="Trinity.Model.TrinityEntities">
+    <Position X="0.5" Y="6" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>JAFCAgIQAAAAAAAQADAAAQAAEgCYACBAkQQIEWAAEEA=</HashCode>
+      <FileName>Model.Context.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Trinity.Model.Address">
+    <Position X="0.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>BCACAMAAAGAAAAAIICAEQAQAAAISIAAAQAAAAAAAAAg=</HashCode>
+      <FileName>Address.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Trinity.Model.ApplicationSetting">
+    <Position X="2.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AEACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAAAAAAA=</HashCode>
+      <FileName>ApplicationSetting.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Trinity.Model.Client">
+    <Position X="4" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>hCMCAAAgACAABAAAAIBEUAEAAAACACAiUQAIAAAAEAA=</HashCode>
+      <FileName>Client.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Trinity.Model.ClientAttribute">
+    <Position X="7.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AEECQAAAAAAAAAAAAAAAAAQgAAAAEAAAAAAAAAAIAAA=</HashCode>
+      <FileName>ClientAttribute.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Trinity.Model.ClientAttributeValue">
+    <Position X="9.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAAAAAAAAAAAAAQAAAAEAAAAAAgAAAAAACQ=</HashCode>
+      <FileName>ClientAttributeValue.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Trinity.Model.ClientCategory">
+    <Position X="11.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAAAAAAAACAAAAQAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>ClientCategory.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Trinity.Model.ClientFee">
+    <Position X="4" Y="9.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAAAAAAQABACAAAAAAAEAAAAAAQAAAAAAAQ=</HashCode>
+      <FileName>ClientFee.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Trinity.Model.ClientNote">
+    <Position X="9.5" Y="8.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACCABAAAgAAICAAAAAAAAAAAAGAAAAAAAAAEAAIAU=</HashCode>
+      <FileName>ClientNote.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Trinity.Model.ClientNoteCategory">
+    <Position X="4" Y="11.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>ClientNoteCategory.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Trinity.Model.ClientNoteTag">
+    <Position X="5.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAAAAACAAAAAAAQAAQAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>ClientNoteTag.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Trinity.Model.Contact">
+    <Position X="7.75" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>EACCCkIQACgUAEACAQAUUAgAAgAWAAACCgAAAEEIAEw=</HashCode>
+      <FileName>Contact.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Trinity.Model.Contact_Permission_Mapping">
+    <Position X="13.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAAAAAAACAAAAAAAAABgACAAAAQAEAAAAAA=</HashCode>
+      <FileName>Contact_Permission_Mapping.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Trinity.Model.ContactCategory">
+    <Position X="13.75" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>BAACAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>ContactCategory.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Trinity.Model.Contract">
+    <Position X="2.25" Y="2.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>QAoiAAABMAAgAACgAQAQAAQgAAAHAAAAAQAAEMiAAAU=</HashCode>
+      <FileName>Contract.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Trinity.Model.Country">
+    <Position X="4" Y="7" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AABCAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Country.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Trinity.Model.DdInstruction">
+    <Position X="5.75" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>EIATCFBAACAAAMAAABGYQAwIAIkCAiBIWgQMQgEIAAk=</HashCode>
+      <FileName>DdInstruction.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Trinity.Model.DdInstructionAttribute">
+    <Position X="9.5" Y="2.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AEACQAAAAAAAAAAAAAAAAAQoAAAQACBAAAAAAAAIAAA=</HashCode>
+      <FileName>DdInstructionAttribute.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Trinity.Model.DdInstructionAttributeValue">
+    <Position X="15.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAACAAAAAAAAAIAAQAAAAAAAAAAAAAAAAAABE=</HashCode>
+      <FileName>DdInstructionAttributeValue.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Trinity.Model.DdInstructionNote">
+    <Position X="15.75" Y="2.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAgAAABAAAAIAAAAAAACAAAAAAAAAAAACAE=</HashCode>
+      <FileName>DdInstructionNote.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Trinity.Model.DdInstructionNoteCategory">
+    <Position X="2.25" Y="11.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAAAAAAAABAAAAQAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>DdInstructionNoteCategory.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Trinity.Model.DdNewSignUpControl">
+    <Position X="13.75" Y="3" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAIAAAAAAA=</HashCode>
+      <FileName>DdNewSignUpControl.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Trinity.Model.DdScheme">
+    <Position X="11.75" Y="2.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>wIKCCIRBABCAAAAEAIAAWIYAEAzGIIAghAQAQaAAQEU=</HashCode>
+      <FileName>DdScheme.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Trinity.Model.DdSchemeType">
+    <Position X="15.75" Y="10" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAAAAAAAAAAAAAQAAAAAACAAAAAAAAAAAAA=</HashCode>
+      <FileName>DdSchemeType.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Trinity.Model.FeeType">
+    <Position X="2.25" Y="8.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>gAACQAAAAAAAAAAAAAAAAAQAAAAAAAAAAQAAAAAACAA=</HashCode>
+      <FileName>FeeType.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Trinity.Model.FileType">
+    <Position X="13.75" Y="9.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>BAAAAgAAAAAAAAAAAAAAAAgAAABAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>FileType.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Trinity.Model.Permission">
+    <Position X="7.75" Y="11.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAAAAAAAAAAAAAAAAACAAAAEAAAAAAAAAEA=</HashCode>
+      <FileName>Permission.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Trinity.Model.PermissionGrp">
+    <Position X="15.75" Y="7.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAAAAAAAAAAAEAAAAAAAAAAAEAAAAAAAAAA=</HashCode>
+      <FileName>PermissionGrp.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Trinity.Model.Role">
+    <Position X="9.5" Y="6.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>BAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAI=</HashCode>
+      <FileName>Role.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Trinity.Model.Setting">
+    <Position X="13.75" Y="7" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAAAAAAAAAAAAAQAAAAEAAAAAAQgAAAAAAA=</HashCode>
+      <FileName>Setting.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Trinity.Model.sysdiagram">
+    <Position X="15.75" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAACAIAAAAAAAAAAAAAAAQAAAFAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>sysdiagram.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

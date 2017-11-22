@@ -1,0 +1,51 @@
+﻿<UserControl x:Class="Trinity.Views.ContactInformation"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             mc:Ignorable="d" 
+             d:DesignHeight="350" d:DesignWidth="550">
+    <Grid>
+        <DataGrid HorizontalAlignment="Left" Margin="10,35,0,0" IsReadOnly="True" VerticalAlignment="Top" Height="254" Width="223" Name="GrdContacts" ItemsSource="{Binding Contacts}" SelectedItem="{Binding SelectedContact}" AutoGenerateColumns="False">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="First Name" Binding="{Binding FirstName}" Width="*"/>
+                <DataGridTextColumn Header="Last Name" Binding="{Binding LastName}" Width="*"/>
+            </DataGrid.Columns>
+        </DataGrid>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+            </Grid.ColumnDefinitions>
+        </Grid>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+            </Grid.ColumnDefinitions>
+            <Label VerticalAlignment="Center" Grid.Row="0" Margin="245,96,0,228" HorizontalAlignment="Left" Grid.Column="0" Content="Job Title"/>
+            <TextBox Width="215" VerticalAlignment="Center" Text="{Binding SelectedContact.JobTitle, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" Grid.Row="0" Margin="311,96,-13,232" Height="22" HorizontalAlignment="Left"/>
+            <Label VerticalAlignment="Center" Grid.Row="0" Margin="245,132,0,192" HorizontalAlignment="Left" Grid.Column="0" Content="Phone"/>
+            <TextBox Width="108" VerticalAlignment="Center" Text="{Binding SelectedContact.PhoneNumber, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" Grid.Row="0" Margin="311,132,0,196" Height="22" HorizontalAlignment="Left"/>
+            <Button Content="Add" Command="{Binding AddCommand}" HorizontalAlignment="Left" Margin="10,306,0,0" VerticalAlignment="Top" Width="65"/>
+            <Button Content="Save" Command="{Binding SaveCommand}" HorizontalAlignment="Left" Margin="461,306,-14,0" VerticalAlignment="Top" Width="65"/>
+            <Button Content="Delete" Command="{Binding DeleteCommand}" HorizontalAlignment="Left" Margin="90,306,0,0" VerticalAlignment="Top" Width="65"/>
+            <Label VerticalAlignment="Center" Grid.Row="0" Margin="311,22,0,302" HorizontalAlignment="Left" Grid.Column="0" Content="First Name"/>
+            <TextBox Width="100" VerticalAlignment="Center" Text="{Binding SelectedContact.FirstName, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" Grid.Row="0" Margin="311,53,0,275" Height="22" HorizontalAlignment="Left"/>
+            <Label VerticalAlignment="Center" Grid.Row="0" Margin="245,163,0,161" HorizontalAlignment="Left" Grid.Column="0" Content="Mobile"/>
+            <TextBox Width="108" VerticalAlignment="Center" Text="{Binding SelectedContact.MobileNumber, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" Margin="311,167,0,161" Height="22" HorizontalAlignment="Left"/>
+            <Label VerticalAlignment="Center" Grid.Row="0" Margin="245,22,0,302" HorizontalAlignment="Left" Grid.Column="0" Content="Title"/>
+            <ComboBox IsReadOnly="True" ItemsSource="{Binding Titles, Mode=TwoWay}" SelectedItem="{Binding SelectedTitle}" DisplayMemberPath="Name" SelectedValuePath="Id" HorizontalAlignment="Left" Margin="245,53,0,0" VerticalAlignment="Top" Width="57"/>
+            <Label VerticalAlignment="Center" Grid.Row="0" Margin="426,22,0,302" HorizontalAlignment="Left" Grid.Column="0" Content="Last Name*"/>
+            <TextBox x:Name="lastNameTextBox" Width="100" VerticalAlignment="Center" Text="{Binding SelectedContact.LastName, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" Margin="426,53,-27,275" Height="22" HorizontalAlignment="Left"/>
+            <Label VerticalAlignment="Center" Grid.Row="0" Margin="245,194,0,130" HorizontalAlignment="Left" Grid.Column="0" Content="Email"/>
+            <TextBox x:Name="emailTextBox" Width="215" VerticalAlignment="Center" Text="{Binding SelectedContact.Email, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" Margin="311,198,-10,130" Height="22" HorizontalAlignment="Left"/>
+            <Label VerticalAlignment="Center" Grid.Row="0" Margin="245,302,0,22" HorizontalAlignment="Left" Grid.Column="0" Content="Created"/>
+            <DatePicker Width="108" VerticalAlignment="Center" IsEnabled="False" SelectedDate="{Binding SelectedContact.CreatedOn, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" Margin="311,302,0,26" HorizontalAlignment="Left"/>
+        </Grid>
+    </Grid>
+</UserControl>
